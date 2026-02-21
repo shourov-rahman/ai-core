@@ -1,0 +1,369 @@
+{
+  "global-navigation-header": {
+    "logo": "",
+    "links": [
+      {
+        "text": "Home",
+        "url": "/"
+      },
+      {
+        "text": "Services",
+        "url": "/services"
+      },
+      {
+        "text": "Portfolio",
+        "url": "/portfolio"
+      },
+      {
+        "text": "About",
+        "url": "/about"
+      },
+      {
+        "text": "Contact",
+        "url": "/contact"
+      }
+    ]
+  },
+  "hero": {
+    "tagline": "For Ecommerce Brands, Founders, and Agencies",
+    "headline": "Stop Guessing. Build an Ecommerce Growth System That Actually Scales.",
+    "description": "I help ecommerce brands and agency teams fix the three leaks killing growth: weak storefront conversion, unreliable tracking, and ad campaigns that burn budget. You get a conversion-focused store, clean attribution, and paid ads built around profitable decisions.",
+    "primaryCTA": {
+      "text": "Book a Strategy Call",
+      "url": "/contact"
+    },
+    "secondaryCTA": {
+      "text": "See Case Studies",
+      "url": "/portfolio"
+    },
+    "trustIndicators": [
+      {
+        "label": "Years Active",
+        "value": "4+"
+      },
+      {
+        "label": "Brands & Teams Supported",
+        "value": "40+"
+      },
+      {
+        "label": "Specialization",
+        "value": "Shopify, WooCommerce, Meta + Google Ads"
+      },
+      {
+        "label": "Agency Partnership Ready",
+        "value": "White-label Friendly"
+      }
+    ],
+    "videoIntroduction": {
+      "url": "",
+      "thumbnail": "",
+      "duration": "45s"
+    },
+    "backgroundMedia": {
+      "type": "",
+      "src": "",
+      "alt": ""
+    }
+  },
+  "services-overview": {
+    "heading": "Everything You Need to Turn Traffic Into Revenue",
+    "cards": [
+      {
+        "icon": "",
+        "title": "Store Design & Development",
+        "bullets": [
+          "Shopify and WooCommerce builds designed to convert, not just look clean",
+          "High-performing landing pages with GemPages and Replo",
+          "Product page UX improvements that reduce drop-off",
+          "Mobile-first layouts that make checkout frictionless"
+        ],
+        "learnMore": {
+          "text": "Learn more",
+          "url": "/services#store-development"
+        }
+      },
+      {
+        "icon": "",
+        "title": "Paid Advertising",
+        "bullets": [
+          "Meta and Google campaign setup based on your margin reality",
+          "Creative testing and audience iteration built for steady scale",
+          "Retargeting flows that recover lost buyers",
+          "Budget allocation focused on profitable growth, not vanity metrics"
+        ],
+        "learnMore": {
+          "text": "Learn more",
+          "url": "/services#paid-advertising"
+        }
+      },
+      {
+        "icon": "",
+        "title": "Tracking & Analytics",
+        "bullets": [
+          "Meta Pixel + CAPI implementation that improves signal quality",
+          "GA4 and event mapping tailored to your funnel",
+          "Attribution cleanup so reporting matches business reality",
+          "Dashboards that show where revenue is really coming from"
+        ],
+        "learnMore": {
+          "text": "Learn more",
+          "url": "/services#tracking-analytics"
+        }
+      }
+    ]
+  },
+  "featured-case-studies": {
+    "heading": "Real Projects. Measurable Outcomes.",
+    "intro": "You do not need another freelancer who says \"we will optimize.\" You need someone who ships, measures, and improves with clear numbers. Here are a few recent wins.",
+    "cards": [
+      {
+        "client": "DTC Skincare Brand",
+        "industry": "Beauty Ecommerce",
+        "challenge": "Paid traffic was growing, but conversion rate stayed flat and ROAS kept dropping.",
+        "solution": "Redesigned key storefront pages, rebuilt product page hierarchy, and restructured Meta campaigns around contribution margin.",
+        "results": [
+          {
+            "label": "Conversion Rate",
+            "before": "1.6%",
+            "after": "2.8%"
+          },
+          {
+            "label": "Meta ROAS",
+            "before": "1.9x",
+            "after": "3.1x"
+          },
+          {
+            "label": "Monthly Revenue",
+            "before": "$48k",
+            "after": "$86k"
+          }
+        ],
+        "clientLogo": "",
+        "cta": {
+          "text": "Read full case study",
+          "url": "/portfolio/dtc-skincare-store-cvr-roas-growth"
+        }
+      },
+      {
+        "client": "Performance Agency Partner",
+        "industry": "White-label Delivery",
+        "challenge": "Agency needed fast Shopify builds and reliable tracking without hiring full-time specialists.",
+        "solution": "Provided white-label store development plus CAPI/GA4 implementation across client accounts with standardized QA.",
+        "results": [
+          {
+            "label": "Project Delivery Speed",
+            "before": "5.5 weeks",
+            "after": "3.2 weeks"
+          },
+          {
+            "label": "Tracking Accuracy",
+            "before": "72%",
+            "after": "94%"
+          },
+          {
+            "label": "Client Retention",
+            "before": "81%",
+            "after": "92%"
+          }
+        ],
+        "clientLogo": "",
+        "cta": {
+          "text": "Read full case study",
+          "url": "/portfolio/agency-whitelabel-shopify-tracking-delivery"
+        }
+      },
+      {
+        "client": "Offline Home Goods Brand",
+        "industry": "Retail to DTC Transition",
+        "challenge": "Strong offline sales but weak online channel with unclear attribution and underperforming ad spend.",
+        "solution": "Built a conversion-first WooCommerce store, launched paid search + social campaigns, and implemented clean event tracking.",
+        "results": [
+          {
+            "label": "Online Revenue Share",
+            "before": "9%",
+            "after": "28%"
+          },
+          {
+            "label": "Cost per Purchase",
+            "before": "$44",
+            "after": "$27"
+          },
+          {
+            "label": "Repeat Purchase Rate",
+            "before": "14%",
+            "after": "22%"
+          }
+        ],
+        "clientLogo": "",
+        "cta": {
+          "text": "Read full case study",
+          "url": "/portfolio/offline-to-dtc-woocommerce-growth-system"
+        }
+      }
+    ],
+    "viewAllCTA": {
+      "text": "View all case studies",
+      "url": "/portfolio"
+    }
+  },
+  "testimonials-carousel": {
+    "heading": "What Clients Say After Working Together",
+    "autoplaySeconds": 5,
+    "testimonials": [
+      {
+        "quote": "We had traffic, but our store was leaking conversions everywhere. Shourov fixed the structure, simplified checkout flow, and our paid traffic started converting like it should.",
+        "clientName": "Nadia R.",
+        "company": "DTC Beauty Brand",
+        "industry": "Ecommerce",
+        "photo": "",
+        "rating": 5
+      },
+      {
+        "quote": "He did not just run ads. He fixed the tracking first, showed us what was broken, then rebuilt campaigns with real data. The difference was immediate.",
+        "clientName": "Arman S.",
+        "company": "Lifestyle Brand",
+        "industry": "Ecommerce",
+        "photo": "",
+        "rating": 5
+      },
+      {
+        "quote": "We use Shourov as a white-label partner for Shopify and analytics work. Delivery is fast, clean, and reliable. Our clients stay because quality stays high.",
+        "clientName": "Liam T.",
+        "company": "Growth Agency",
+        "industry": "Marketing Agency",
+        "photo": "",
+        "rating": 5
+      },
+      {
+        "quote": "As a solo founder, I needed someone who could explain things clearly and execute without babysitting. That is exactly what I got.",
+        "clientName": "Maya K.",
+        "company": "Startup Ecommerce Founder",
+        "industry": "Early-Stage Brand",
+        "photo": "",
+        "rating": 5
+      },
+      {
+        "quote": "Our reports finally make sense. Meta, GA4, and backend numbers now align closely enough to make confident scaling decisions.",
+        "clientName": "David P.",
+        "company": "Apparel Brand",
+        "industry": "Ecommerce",
+        "photo": "",
+        "rating": 5
+      },
+      {
+        "quote": "The best part was how practical the process felt. No fluff, no random tactics, just focused work tied to revenue outcomes.",
+        "clientName": "Sabrina M.",
+        "company": "Home & Living Brand",
+        "industry": "Retail + DTC",
+        "photo": "",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Questions You Might Be Asking",
+    "items": [
+      {
+        "question": "What are your pricing ranges?",
+        "answer": "Most projects start from $800 for focused implementation work and can go up to $12,000 for full store + tracking + ads builds. Ongoing retainers typically range from $1,500 to $8,000 per month depending on scope, ad spend, and reporting needs."
+      },
+      {
+        "question": "How long does a typical project take?",
+        "answer": "Smaller tracking or landing page projects are usually completed in 1 to 3 weeks. Full system builds typically take 4 to 8 weeks, including audit, implementation, QA, and performance refinement."
+      },
+      {
+        "question": "Do you work with agencies?",
+        "answer": "Yes. I partner with agencies as a white-label ecommerce and tracking specialist. You can keep client-facing ownership while I handle delivery behind the scenes with clear communication and consistent quality."
+      }
+    ]
+  },
+  "final-cta": {
+    "heading": "Ready to Stop Wasting Ad Spend?",
+    "subheading": "Book a strategy call and get a clear plan to improve conversion, clean up tracking, and scale with confidence.",
+    "primaryCTA": {
+      "text": "Book Your Call Now",
+      "url": "/contact"
+    },
+    "secondaryCTA": {
+      "text": "Or send me a message",
+      "url": "/contact"
+    },
+    "trustReinforcement": "Join growth-focused ecommerce brands and agencies that trust me to build and optimize their revenue engine.",
+    "socialProofSnippet": {
+      "text": "\"No fluff. Clear strategy, clean implementation, measurable results.\"",
+      "attribution": "Recent client feedback",
+      "logos": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "backgroundMedia": {
+      "type": "",
+      "src": "",
+      "alt": ""
+    }
+  },
+  "footer": {
+    "brandAndLegal": {
+      "logo": "",
+      "tagline": "Profitable ecommerce systems for brands that refuse to waste ad spend.",
+      "socialLinks": [
+        {
+          "platform": "LinkedIn",
+          "url": ""
+        },
+        {
+          "platform": "Facebook",
+          "url": ""
+        },
+        {
+          "platform": "Instagram",
+          "url": ""
+        }
+      ],
+      "legalLinks": [
+        {
+          "text": "Privacy Policy",
+          "url": "/privacy"
+        },
+        {
+          "text": "Terms of Service",
+          "url": "/terms"
+        }
+      ]
+    },
+    "quickLinks": [
+      {
+        "text": "Services",
+        "url": "/services"
+      },
+      {
+        "text": "Portfolio",
+        "url": "/portfolio"
+      },
+      {
+        "text": "About",
+        "url": "/about"
+      },
+      {
+        "text": "Contact",
+        "url": "/contact"
+      },
+      {
+        "text": "Blog",
+        "url": "/blog"
+      }
+    ],
+    "contactInfo": {
+      "email": "hello@shourovrahman.com",
+      "responseTime": "Typical response within 24 hours (Mon-Fri)",
+      "calendarBookingLink": "/contact"
+    },
+    "bottomBar": {
+      "copyright": "© Shourov Rahman. All rights reserved.",
+      "builtWith": "Built with Astro + Tailwind",
+      "contactEmail": "hello@shourovrahman.com"
+    }
+  }
+}

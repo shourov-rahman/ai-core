@@ -1,0 +1,20 @@
+---
+description: Project Structure Reconfigure
+---
+Read this file `.ai-core/development-rules/`
+
+I want to review and rewrite project structrue. 
+
+- The project struture must be suitable for production grade application.
+- The project structure must be scalable for long term project.
+
+Use mcp and google search for updated information. 
+
+Don't give unnecessary information. Analyze, think and then give suggestion. Include reason why you want to  add or remove that. 
+
+Also right precise and consise comment.
+
+Don't change the existing markdown file. With all of your suggestion  create a new .md file and write only a full project structure. 
+
+Note: 
+- Don't read the current codebase. Current codebase structure has lackings  and not structured. 

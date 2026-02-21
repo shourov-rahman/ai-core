@@ -1,0 +1,154 @@
+---
+description: Merge feature branch to development branch (general)
+---
+
+## Pre-Merge Checklist
+
+Before starting the merge process, ensure:
+- All changes are committed (no uncommitted work)
+
+
+---
+
+## Step 1: Verify Current State
+
+**Check your current branch and status:**
+
+```bash
+# Verify you're on the right branch
+git branch --show-current
+
+# Check for uncommitted changes
+git status
+```
+
+Take confirmation from the user. Do you want to merge `git branch --show-current` this branch with development branch? If the answer is yes then proceed otherwise stop here. 
+
+⚠️ **If you have uncommitted changes:**
+```bash
+# Option A: Commit them
+git add .
+git commit -m "type: description"
+```
+
+---
+
+## Step 2: Validate Branch
+
+
+```bash
+# Ensure you're on the right branch
+git checkout your-branch-name
+
+```
+
+---
+
+## Step 3: Merge with development
+
+
+```bash
+
+# Ensure you're on the right branch
+git checkout your-branch-name
+
+# Merge development into feature
+git merge origin/development
+```
+
+**Two scenarios:**
+
+### A) Clean Merge (No Conflicts)
+```
+Auto-merging src/components/Hero.astro
+Merge made by the 'ort' strategy.
+ src/components/Hero.astro | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+```
+✅ Continue to validation
+
+### B) Merge Conflicts
+```
+Auto-merging src/components/Hero.astro
+CONFLICT (content): Merge conflict in src/components/Hero.astro
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+**Resolve conflicts:**
+1. Open conflicted files in your editor
+2. Look for conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`)
+3. Resolve conflicts by choosing the correct code
+4. Remove conflict markers
+5. Test the resolved code
+
+```bash
+# After resolving conflicts
+git add .
+git commit -m "merge: resolve conflicts from development"
+
+```
+
+---
+
+## Step 4: Switch to development Branch
+
+**Prepare development branch for merge:**
+
+```bash
+# Switch to development
+git checkout development
+
+# Ensure development is up to date
+git pull origin development
+
+# Verify clean state
+git status
+```
+
+**Expected output:**
+```
+On branch development
+Your branch is up to date with 'origin/development'.
+nothing to commit, working tree clean
+```
+
+---
+
+## Step 5: Merge Feature into development
+
+**Perform the merge:**
+
+```bash
+# Merge branch into development
+git merge your-branch-name --no-ff
+```
+
+> **Note:** `--no-ff` creates a merge commit, preserving feature branch history.
+
+**Two scenarios:**
+
+### A) Clean Merge (No Conflicts)
+```
+Merge made by the 'ort' strategy.
+ src/components/Hero.astro | 45 +++++++++++++++++++++
+ src/pages/index.astro     | 12 +++---
+ 2 files changed, 52 insertions(+), 5 deletions(-)
+```
+✅ Continue to Step 7
+
+### B) Merge Conflicts
+```
+Auto-merging src/components/Hero.astro
+CONFLICT (content): Merge conflict in src/components/Hero.astro
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+**This shouldn't happen if Step 3 was done correctly, but if it does:**
+
+```bash
+# Abort the merge
+git merge --abort
+
+# Go back to Step 3 and ensure feature is properly synced
+git checkout your-branch-name
+```
