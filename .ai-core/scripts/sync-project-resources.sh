@@ -16,8 +16,7 @@ MAIN_PROJECT_RESOURCES="/home/shourov/ssd-vault/working-files-and-folders/softwa
 # TARGET PROJECT DIRECTORIES
 # ------------------------------------------
 TARGETS=(
-  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/portfolio-project/shourov-rahman-portfolio"
-  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/practice-project/shopify/justsnooz-final-development"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/side-project/shourov-rahman-portfolio"
 )
 
 # ------------------------------------------
