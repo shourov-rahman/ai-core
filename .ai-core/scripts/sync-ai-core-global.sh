@@ -3,7 +3,7 @@
 # ==========================================
 # Master Sync Script
 # Order:
-#   1. Run sync-commands.sh
+#   1. Run sync-slash-commands.sh
 #   2. Sync global .ai-core to all projects
 #   3. Run sync-ai-core-local.sh inside each project
 # ==========================================
@@ -16,17 +16,17 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # ------------------------------------------
-# STEP 1: Run sync-commands.sh
+# STEP 1: Run sync-slash-commands.sh
 # ------------------------------------------
 echo "=========================================="
-echo "🔹 Step 1: Running sync-commands.sh"
+echo "🔹 Step 1: Running sync-slash-commands.sh"
 echo "=========================================="
 
-if [ -f "$SCRIPT_DIR/sync-commands.sh" ]; then
-  bash "$SCRIPT_DIR/sync-commands.sh"
-  echo "✅ sync-commands.sh completed."
+if [ -f "$SCRIPT_DIR/sync-slash-commands.sh" ]; then
+  bash "$SCRIPT_DIR/sync-slash-commands.sh"
+  echo "✅ sync-slash-commands.sh completed."
 else
-  echo "❌ sync-commands.sh not found in:"
+  echo "❌ sync-slash-commands.sh not found in:"
   echo "$SCRIPT_DIR"
   exit 1
 fi
@@ -42,8 +42,7 @@ MAIN_AI_CORE="/home/shourov/ssd-vault/working-files-and-folders/software-develop
 # TARGET PROJECT DIRECTORIES
 # ------------------------------------------
 TARGETS=(
-  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/portfolio-project/shourov-rahman-portfolio"
-  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/practice-project/shopify/justsnooz-final-development"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/side-project/shourov-rahman-portfolio"
 )
 
 # ------------------------------------------

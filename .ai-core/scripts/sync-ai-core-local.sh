@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 MASTER=".ai-core"
-TOOLS=(.codex .qwen .claude .agent)
+TOOLS=(.codex .qwen .claude .agent .gemini)
 
 # Ensure master exists
 if [ ! -d "$MASTER" ]; then
