@@ -21,24 +21,28 @@ The portfolio will demonstrate expertise in Shopify/WooCommerce development, lan
 ## Target Audience
 
 ### Primary ICP 1: Revenue-Generating Ecommerce Brands ($250K-$1.5M/year)
+
 - **Decision Maker:** Founder, Co-founder, Head of Marketing
 - **Pain Points:** Sales plateau, declining ROAS, tracking issues, low conversion rates
 - **Budget:** $3,000-$12,000 per project, $2,000-$8,000/month retainers
 - **Emotional Triggers:** Fear of wasted ad spend, frustration with unreliable contractors, pressure to increase margins
 
 ### Primary ICP 2: Growth-Focused Marketing Agencies (3-20 employees)
+
 - **Decision Maker:** Agency Owner, Operations Director
 - **Pain Points:** No in-house Shopify/tracking specialist, delivery bottlenecks, quality control
 - **Budget:** $2,000-$7,000 per project, recurring subcontract retainers
 - **Emotional Triggers:** Fear of losing clients, need for reliable fulfillment partner
 
 ### Secondary ICP 3: Early-Stage Ecommerce Founders (Pre-launch to $50K/year)
+
 - **Decision Maker:** Solo founder
 - **Pain Points:** Amateur store, no tracking setup, wasting ad budget
 - **Budget:** $800-$2,500 fixed packages
 - **Emotional Triggers:** Fear of failing, overwhelm, desire for fast results
 
 ### Secondary ICP 4: Brick & Mortar/Wholesale Brands ($100K-$800K/year offline)
+
 - **Decision Maker:** Business owner, Managing Director
 - **Pain Points:** No digital infrastructure, declining foot traffic, need end-to-end setup
 - **Budget:** $2,000-$8,000 setup, $1,500-$5,000/month management
@@ -49,15 +53,18 @@ The portfolio will demonstrate expertise in Shopify/WooCommerce development, lan
 ## Positioning & Messaging
 
 ### Value Proposition
+
 "Profitable ecommerce systems for brands that refuse to waste ad spend. I build high-converting stores and bulletproof tracking setups that turn data into predictable revenue."
 
 ### Differentiation
+
 - **Technical + Marketing Hybrid:** Unlike pure designers (no tracking knowledge) or pure marketers (no dev skills), combining store development with conversion tracking and paid ads expertise
 - **Results-Focused Positioning:** Lead with business outcomes (ROAS, CVR, revenue growth) rather than features
 - **Niche Specialization:** Specifically targeting ecommerce/DTC brands, not generic web development
 - **White-Label Capability:** Clear agency partnership offering
 
 ### Key Messaging Pillars
+
 1. **Store Development:** Conversion-optimized Shopify/WooCommerce stores with professional landing pages
 2. **Tracking Mastery:** Accurate Meta Pixel, CAPI, and GA4 setup for reliable attribution
 3. **Paid Advertising:** Campaign setup, scaling strategies, and ROAS optimization
@@ -68,6 +75,7 @@ The portfolio will demonstrate expertise in Shopify/WooCommerce development, lan
 ## Core Features & Functionality
 
 ### 1. Hero Section
+
 - **Above-the-fold headline** communicating value proposition
 - **Subheadline** clarifying target audience and services
 - **Primary CTA:** "Book a Strategy Call" or "Get Your Free Store Audit"
@@ -75,9 +83,11 @@ The portfolio will demonstrate expertise in Shopify/WooCommerce development, lan
 - **Brief video introduction** (optional, 30-60 seconds)
 
 ### 2. Services Section
+
 Three service categories with clear descriptions:
 
 **Store Design & Development**
+
 - Shopify store design & development
 - WooCommerce websites
 - Landing pages (GemPages, Replo)
@@ -85,6 +95,7 @@ Three service categories with clear descriptions:
 - Product page optimization
 
 **Paid Advertising**
+
 - Facebook & Instagram Ads
 - Google Ads (Search, Shopping, Display)
 - Campaign setup & scaling
@@ -92,6 +103,7 @@ Three service categories with clear descriptions:
 - Creative testing frameworks
 
 **Tracking & Analytics**
+
 - Meta Pixel setup
 - Conversion API (CAPI) integration
 - Google Analytics 4 configuration
@@ -99,7 +111,9 @@ Three service categories with clear descriptions:
 - Attribution reporting & dashboards
 
 ### 3. Case Studies / Portfolio Section
+
 Minimum 3-5 detailed case studies showing:
+
 - Client background and initial challenges
 - Solution implemented (store redesign, tracking setup, ad strategy)
 - Results with specific metrics (ROAS improvement, CVR increase, revenue growth)
@@ -107,12 +121,14 @@ Minimum 3-5 detailed case studies showing:
 - Client testimonials integrated into case studies
 
 ### 4. Testimonials Section
+
 - 6-8 client testimonials
 - Include client name, company, photo (if available)
 - Focus on business results, not just satisfaction
 - Filter by service type or industry
 
 ### 5. About Section
+
 - Professional headshot
 - Background and expertise
 - Why you're different from other agencies/freelancers
@@ -120,7 +136,9 @@ Minimum 3-5 detailed case studies showing:
 - Relevant certifications (Meta Blueprint, Google Ads, Shopify Partner)
 
 ### 6. Process Section
+
 Clear 4-6 step process showing how you work with clients:
+
 1. Discovery & Audit
 2. Strategy Development
 3. Implementation
@@ -128,7 +146,9 @@ Clear 4-6 step process showing how you work with clients:
 5. Scaling & Reporting
 
 ### 7. FAQ Section
+
 Address common objections and questions:
+
 - Pricing and packages
 - Timeline expectations
 - What's included
@@ -136,12 +156,14 @@ Address common objections and questions:
 - White-label services for agencies
 
 ### 8. Contact Section
+
 - **Primary form:** Name, Email, Business Website, Monthly Ad Spend, Services Needed, Message
 - **Secondary CTAs:** Email link, calendar booking link
 - Response time commitment
 - Based in Bangladesh, serving US/UK/EU/Australia clients
 
 ### 9. Blog/Resources (Optional for MVP)
+
 - Articles on conversion optimization
 - Tracking setup guides
 - Paid ads strategies
@@ -154,6 +176,7 @@ Address common objections and questions:
 ### Core Pages
 
 **1. Homepage (`/`)**
+
 - Hero section with value proposition
 - Services overview
 - Featured case studies (3 highlights)
@@ -162,6 +185,7 @@ Address common objections and questions:
 - CTA sections (multiple throughout)
 
 **2. Services Page (`/services`)**
+
 - Overview of all three service categories
 - Detailed descriptions
 - Pricing indicators (ranges or "Starting at")
@@ -170,12 +194,14 @@ Address common objections and questions:
 - CTA to contact
 
 **3. Portfolio/Case Studies (`/portfolio` or `/case-studies`)**
+
 - Grid or list view of all projects
 - Filters by service type or industry
 - Individual case study pages (`/portfolio/[slug]`)
 - Each case study includes: challenge, solution, results, testimonial
 
 **4. About Page (`/about`)**
+
 - Personal story and background
 - Professional experience
 - Certifications and partnerships
@@ -184,6 +210,7 @@ Address common objections and questions:
 - CTA to connect
 
 **5. Contact Page (`/contact`)**
+
 - Contact form with validation
 - Email address
 - Calendar booking link
@@ -194,17 +221,20 @@ Address common objections and questions:
 ### Optional Pages
 
 **6. Blog (`/blog`)**
+
 - Article listing page
 - Individual post pages (`/blog/[slug]`)
 - Categories: Conversion Optimization, Tracking Setup, Paid Ads
 - Author bio section
 
 **7. Resources (`/resources`)**
+
 - Free guides or checklists
 - Lead magnets for email capture
 - Tools and recommendations
 
 **8. Agency Partnership (`/agency-partnership`)**
+
 - Dedicated page for ICP 2
 - White-label capabilities
 - Portfolio of agency work
@@ -240,11 +270,10 @@ Address common objections and questions:
 
 ---
 
-
-
 ## User Flows
 
 ### Primary Flow: Service-Focused Visitor (ICP 1 & 4)
+
 1. Land on homepage → Read headline and value proposition
 2. Scroll to Services section → Identify relevant service
 3. View Case Studies → Validate through results
@@ -253,6 +282,7 @@ Address common objections and questions:
 6. Receive confirmation → Get follow-up email
 
 ### Secondary Flow: Agency Visitor (ICP 2)
+
 1. Land on homepage → Recognize white-label opportunity
 2. Navigate to Services or About → Confirm technical capabilities
 3. Review Case Studies → Validate delivery quality
@@ -261,6 +291,7 @@ Address common objections and questions:
 6. Receive confirmation → Schedule discovery call
 
 ### Tertiary Flow: Early-Stage Founder (ICP 3)
+
 1. Land on homepage → Identify with pain points
 2. Scroll to Services → Look for starter packages
 3. View Testimonials → Seek validation from similar founders
@@ -275,28 +306,33 @@ Address common objections and questions:
 ### Platform & Technology Stack
 
 **Frontend Framework:** Astro
+
 - Static site generation for optimal performance
 - Component-based architecture
 - Built-in image optimization
 - Excellent SEO capabilities
 
 **Hosting:** Cloudflare Pages
+
 - Global CDN distribution
 - Automatic HTTPS
 - Zero-config deployments
 - Branch previews
 
 **CSS Framework:** Tailwind CSS
+
 - Utility-first approach
 - Responsive design system
 - Custom color palette
 - Dark mode support (optional)
 
-**Animation Library:** 
+**Animation Library:**
+
 - GSAP or Framer Motion for scroll animations
 - Intersection Observer API for lazy loading
 
 **Form Handling:**
+
 - Netlify Forms or Formspree
 - Server-side validation
 - Honeypot spam protection
@@ -351,6 +387,7 @@ Address common objections and questions:
 ### SEO Requirements
 
 **Technical SEO:**
+
 - Semantic HTML structure
 - Proper heading hierarchy (H1-H6)
 - XML sitemap generation
@@ -359,6 +396,7 @@ Address common objections and questions:
 - Schema markup (Organization, Person, Service, Review)
 
 **On-Page SEO:**
+
 - **Title Tags:** Unique for each page, 50-60 characters
 - **Meta Descriptions:** Compelling, 150-160 characters
 - **H1 Tags:** Single H1 per page with target keyword
@@ -366,6 +404,7 @@ Address common objections and questions:
 - **Internal Linking:** Strategic cross-linking between pages
 
 **Target Keywords:**
+
 - Shopify store designer
 - Ecommerce conversion optimization
 - Meta Pixel setup expert
@@ -374,6 +413,7 @@ Address common objections and questions:
 - Landing page designer (GemPages/Replo)
 
 **Content Optimization:**
+
 - 1,500+ words on homepage
 - Service pages optimized for specific keywords
 - Case studies with detailed descriptions
@@ -382,6 +422,7 @@ Address common objections and questions:
 ### Analytics & Tracking
 
 **Events to Track:**
+
 - Page views (all pages)
 - Button clicks (CTAs, navigation)
 - Form submissions (contact, newsletter)
@@ -391,11 +432,13 @@ Address common objections and questions:
 - Video plays (if applicable)
 
 **Conversion Goals:**
+
 - Primary: Contact form submission
 - Secondary: Calendar booking click
 - Tertiary: Newsletter signup
 
 **Reporting Dashboard:**
+
 - Weekly traffic summary
 - Conversion rate by traffic source
 - Top-performing pages
@@ -406,6 +449,7 @@ Address common objections and questions:
 ## Constraints
 
 ### Budget
+
 - **Development Budget:** $0 (self-built using open-source tools)
 - **Annual Hosting:** $0 (Cloudflare Pages free tier)
 - **Domain:** ~$15/year (.com)
@@ -413,6 +457,7 @@ Address common objections and questions:
 - **Total First Year:** ~$100-$650
 
 ### Timeline
+
 - **Week 1-2:** Content creation (copy, case studies, testimonials)
 - **Week 3-4:** Design and development (Astro setup, component building)
 - **Week 5:** Integration and testing (forms, analytics, performance optimization)
@@ -424,6 +469,7 @@ Address common objections and questions:
 ### Scope
 
 **In Scope (MVP):**
+
 - Core pages: Homepage, Services, Portfolio (3-5 case studies), About, Contact
 - Responsive design (mobile + desktop)
 - Contact form with email notification
@@ -432,6 +478,7 @@ Address common objections and questions:
 - Performance optimization (Lighthouse 90+)
 
 **Out of Scope (MVP):**
+
 - Blog functionality (can add post-launch)
 - E-commerce/payment integration
 - User authentication or member area
@@ -440,6 +487,7 @@ Address common objections and questions:
 - Client portal or dashboard
 
 **Post-Launch Enhancements:**
+
 - Add blog with 10-15 articles
 - Implement live chat
 - Create lead magnet resources
@@ -455,6 +503,7 @@ Address common objections and questions:
 ### Pre-Launch (Week 5-6)
 
 **Content & Design**
+
 - [ ] All copy finalized and proofread
 - [ ] Professional headshot uploaded
 - [ ] 3-5 case studies written with metrics
@@ -464,6 +513,7 @@ Address common objections and questions:
 - [ ] Mobile responsive design verified
 
 **Technical Setup**
+
 - [ ] Domain purchased and connected to Cloudflare Pages
 - [ ] SSL certificate active (HTTPS)
 - [ ] All pages tested in multiple browsers (Chrome, Firefox, Safari)
@@ -476,6 +526,7 @@ Address common objections and questions:
 - [ ] Favicon and social share images created
 
 **Performance & SEO**
+
 - [ ] Lighthouse audit completed (90+ on all metrics)
 - [ ] Core Web Vitals passing (LCP, FID, CLS)
 - [ ] All images have alt text
@@ -486,6 +537,7 @@ Address common objections and questions:
 - [ ] Broken links checked and fixed
 
 **Integrations**
+
 - [ ] Mailchimp/email provider connected
 - [ ] Calendly booking link tested
 - [ ] Form submissions routing to CRM or email
@@ -493,6 +545,7 @@ Address common objections and questions:
 - [ ] Contact form spam protection enabled
 
 **Legal & Compliance**
+
 - [ ] Privacy Policy published
 - [ ] Terms of Service published
 - [ ] Cookie consent banner (if required by region)
@@ -501,6 +554,7 @@ Address common objections and questions:
 ### Launch Day (Week 7)
 
 **Go-Live**
+
 - [ ] Final backup of all files
 - [ ] Cloudflare Pages deployment successful
 - [ ] DNS propagation verified
@@ -510,6 +564,7 @@ Address common objections and questions:
 - [ ] Send launch email to existing contacts
 
 **Monitoring**
+
 - [ ] Set up Google Search Console alerts
 - [ ] Configure analytics email reports
 - [ ] Create dashboard for daily metrics review
@@ -519,6 +574,7 @@ Address common objections and questions:
 ### Post-Launch (Week 7-8)
 
 **Marketing & Promotion**
+
 - [ ] Submit site to relevant directories (Clutch, Shopify Experts)
 - [ ] Create LinkedIn posts highlighting case studies
 - [ ] Reach out to past clients for referrals
@@ -527,6 +583,7 @@ Address common objections and questions:
 - [ ] Engage in relevant Facebook/LinkedIn groups
 
 **Optimization**
+
 - [ ] Review analytics data (traffic sources, bounce rate)
 - [ ] Track conversion rate from visitor to lead
 - [ ] Identify highest-traffic pages
@@ -535,6 +592,7 @@ Address common objections and questions:
 - [ ] Collect feedback from first 5 inquiries
 
 **Ongoing Maintenance**
+
 - [ ] Add new case studies monthly
 - [ ] Update testimonials as received
 - [ ] Publish blog posts (if applicable)
