@@ -1,37 +1,11 @@
 #!/usr/bin/env bash
 
-# ==========================================
-# Master Sync Script
-# Order:
-#   1. Run sync-slash-commands.sh
-#   2. Sync global .ai-core to all projects
-#   3. Run sync-ai-core-local.sh inside each project
-# ==========================================
-
 set -e
 
 # ------------------------------------------
 # SCRIPT DIRECTORY (where this file lives)
 # ------------------------------------------
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# ------------------------------------------
-# STEP 1: Run sync-slash-commands.sh
-# ------------------------------------------
-echo "=========================================="
-echo "🔹 Step 1: Running sync-slash-commands.sh"
-echo "=========================================="
-
-if [ -f "$SCRIPT_DIR/sync-slash-commands.sh" ]; then
-  bash "$SCRIPT_DIR/sync-slash-commands.sh"
-  echo "✅ sync-slash-commands.sh completed."
-else
-  echo "❌ sync-slash-commands.sh not found in:"
-  echo "$SCRIPT_DIR"
-  exit 1
-fi
-
-echo
 
 # ------------------------------------------
 # MAIN SOURCE DIRECTORY
@@ -55,13 +29,9 @@ if [ ! -d "$MAIN_AI_CORE" ]; then
   exit 1
 fi
 
-echo "=========================================="
-echo "🔹 Step 2: Syncing global .ai-core"
-echo "=========================================="
-echo
 
 # ------------------------------------------
-# STEP 2: Global Sync
+# Global Sync
 # ------------------------------------------
 for PROJECT in "${TARGETS[@]}"; do
 
@@ -79,27 +49,13 @@ for PROJECT in "${TARGETS[@]}"; do
   rsync -av \
     --delete \
     --exclude "project-resources" \
+    --exclude "scripts" \
     "$MAIN_AI_CORE/" \
     "$PROJECT/.ai-core"
 
   echo "✅ Global sync completed."
   echo
-
-  # ------------------------------------------
-  # STEP 3: Run local sync inside project
-  # ------------------------------------------
-  echo "🔹 Step 3: Running sync-ai-core-local.sh inside project"
-
-  if [ -f "$PROJECT/.ai-core/scripts/sync-ai-core-local.sh" ]; then
-    bash "$PROJECT/.ai-core/scripts/sync-ai-core-local.sh"
-    echo "✔ Local sync completed."
-  else
-    echo "⚠️  sync-ai-core-local.sh not found in project."
-  fi
-
-  echo
+ 
 done
 
-echo "=========================================="
-echo "🎉 All projects fully synced successfully!"
-echo "=========================================="
+
