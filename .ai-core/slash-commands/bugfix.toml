@@ -1,6 +1,7 @@
----
-description: Fixes a bug in the codebase
----
+name = "bugfix"
+description = "Fixes a bug in the codebase"
+
+prompt = """
 
 You are tasked with fixing a bug described by "$Argument".
 
@@ -40,3 +41,4 @@ Execute the following structured workflow:
 
 5.  **Finalization**:
     - **Summary**: Describe the bug that was fixed and the solution implemented.
+"""

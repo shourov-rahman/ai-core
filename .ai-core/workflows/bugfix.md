@@ -1,5 +1,4 @@
 ---
-name: bugfix
 description: Fixes a bug in the codebase
 ---
 

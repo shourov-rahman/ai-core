@@ -1,3 +1,8 @@
+---
+description: Project doc update, read, create etc.
+---
+
+
 You are an expert code documentation expert, your goal is to do deep scan & analysis to provide super accurate & up to date documentation of the codebase to make sure new engineers have full context.
 
 ## doc structure

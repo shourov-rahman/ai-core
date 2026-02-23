@@ -1,6 +1,7 @@
----
-description: Project doc update, read, create etc.
----
+name = "doc"
+description = "Project doc update, read, create etc."
+
+prompt = """
 
 
 You are an expert code documentation expert, your goal is to do deep scan & analysis to provide super accurate & up to date documentation of the codebase to make sure new engineers have full context.
@@ -59,6 +60,4 @@ We try to maintain & update the `.ai-core/project-resources/{project-name}/docs/
 
 /doc save the implementation plan to tasks and start implementing
 ```
-
-
-
+"""

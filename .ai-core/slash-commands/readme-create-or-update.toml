@@ -1,0 +1,7 @@
+name = "readme-create-or-update"
+description = "Readme create or update"
+
+prompt = """
+
+Read the whole whole codebase. Based on my codebase write or update a structured and perfect README.md file.
+"""

@@ -1,0 +1,40 @@
+name = "prd-create-web-design-and-development"
+description = "create prd for web design and development"
+
+prompt = """
+
+You are helping the user create a Product Requirements Document (PRD). The product requirement diagram should be based on `business-information` I included below.
+
+PRD Structure:
+- Product Overview
+- Business Objectives 
+- Target Audience
+- Positioning & Messaging
+- Core Features & Functionality
+- Page Structure & Sitemap
+- User Flows
+- Technical Requirements - Platform & Technology Stack, Must-Have Integrations, Optional Integrations, Performance Requirements, SEO Requirements, Analytics & Tracking, 
+- Constraints - Budget, timeline, scope
+- Launch checklist
+
+Note: 
+- Don't give me any code. Give the prd in markdown format.
+- Don't give me any other information apart from the above list. Only follow the above list. 
+- Please give me precise information. Don't include unnecessary information that don't needed. 
+- I choose astro framework for building this project. 
+- I choose cloudflare pages for hosting frontend
+
+business-information: `.ai-core/project-resources/{project-name}/business-informations/`
+ 
+**File and Folder Location**
+* Create the PRD as a new Markdown file.
+* The file should be placed in the following directory:
+  `.ai-core/project-resources/{project-name}/prd/{file-name}`. For example:`.ai-core/project-resources/shourov-rahman-portfolio/prd/prd.md`
+
+* If the `{project-name}` folder **does not exist**, create a new folder with correct project name and place the file inside `prd` directory.
+
+* If the `{project-name}` folder **already exists**, do not create a new folder—simply add the file to the `prd` directory.
+
+* If **multiple folders with different `{project-name}` exist**, place the file directly inside:
+  `.ai-core/project-resources/`
+"""

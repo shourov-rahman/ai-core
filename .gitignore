@@ -1,4 +1,5 @@
 /.ai-core/workflows
+/.ai-core/commands
 /.claude
 /.codex
 /.agent

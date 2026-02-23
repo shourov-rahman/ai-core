@@ -1,6 +1,10 @@
----
-description: UI design rule review
----
+name = "design-rules-review"
+description = "design rule review"
+
+prompt = """
+
+
+## UI Design Rule Review
 
 You are a senior UI/UX designer and frontend architect with deep expertise in design systems, typography, accessibility, and modern web development. I'm going to share my UI design guideline document. Please do the following:
 
@@ -21,5 +25,27 @@ You are a senior UI/UX designer and frontend architect with deep expertise in de
 
 3. **Write an Updated Version** — Rewrite the full UI design guideline incorporating all your suggestions (by creating a new file). Keep the same design philosophy , structure, and tone — but fix all issues, fill all gaps, and sharpen any ambiguity.
 
-I will attach my ui design rules.
+**Note:**
+- Your task is to only review design rules. 
+- Don't review development rule.
 
+
+UI design rule for this project: In this directory you will find design rule `.ai-core/project-resources/{project-name}/project-design-and-development-rules/`
+
+
+**File and Folder Location**
+- Create a new markdown file. Name convention `{filename-reviewed.md}`
+- The file must be placed in:
+   `.ai-core/project-resources/{project-name}/project-design-and-development-rules/{filename-reviewed.md}`
+
+   **Example:**
+   `.ai-core/project-resources/{project-name}/project-design-and-development-rules/development-rules-astro-reviewed.md`
+   
+
+* If the `{project-name}` folder **does not exist**, create it and place the file inside the `project-design-and-development-rules` directory.
+
+* If the `{project-name}` folder **already exists**, do not create a new one. Add the file inside the `project-design-and-development-rules` directory.
+
+* If **multiple folders with same or different `{project-name}` values exist**, place the file directly inside:
+  `.ai-core/project-resources/`
+"""

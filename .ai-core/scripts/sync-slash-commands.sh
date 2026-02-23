@@ -26,16 +26,35 @@ mkdir -p .ai-core/workflows
 mkdir -p .ai-core/commands
 mkdir -p ~/.codex/prompts
 
+# --------------------------------
 # Sync slash-commands → workflows
-echo "Syncing to workflows..."
-rsync -a --delete .ai-core/slash-commands/ .ai-core/workflows/
+# (ONLY .md files)
+# --------------------------------
+echo "Syncing .md files to workflows..."
+rsync -a --delete \
+  --include="*.md" \
+  --exclude="*" \
+  .ai-core/slash-commands/ \
+  .ai-core/workflows/
 
+# --------------------------------
 # Sync slash-commands → commands
-echo "Syncing to commands..."
-rsync -a --delete .ai-core/slash-commands/ .ai-core/commands/
+# (sync all files- .md, .toml)
+# --------------------------------
+echo "Syncing all files to commands..."
+rsync -a --delete \
+  .ai-core/slash-commands/ \
+  .ai-core/commands/
 
+# --------------------------------
 # Sync slash-commands → prompts
-echo "Syncing to ~/.codex/prompts..."
-rsync -a --delete .ai-core/slash-commands/ ~/.codex/prompts/
+# (ONLY .md files)
+# --------------------------------
+echo "Syncing .md files to ~/.codex/prompts..."
+rsync -a --delete \
+  --include="*.md" \
+  --exclude="*" \
+  .ai-core/slash-commands/ \
+  ~/.codex/prompts/
 
 echo "Done."
