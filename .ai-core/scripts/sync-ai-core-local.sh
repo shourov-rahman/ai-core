@@ -45,13 +45,12 @@ for PROJECT_PATH in "${TARGETS[@]}"; do
   echo ""
 
 # =====================================================
-  # .codex → AGENTS.md, skills
+  # .codex → skills
   # =====================================================
   echo "🔄 Syncing → .codex"
   mkdir -p "$PROJECT_PATH/.codex"
 
   rsync -av --delete \
-    --include="AGENTS.md" \
     --include="skills/***" \
     --exclude="*" \
     "$SOURCE_DIR/" \
@@ -60,13 +59,12 @@ for PROJECT_PATH in "${TARGETS[@]}"; do
   echo "   ✔ Done"
 
   # =====================================================
-  # .agent → rules, workflows, skills
+  # .agent → workflows, skills
   # =====================================================
   echo "🔄 Syncing → .agent"
   mkdir -p "$PROJECT_PATH/.agent"
 
   rsync -av --delete \
-    --include="rules/***" \
     --include="workflows/***" \
     --include="skills/***" \
     --exclude="*" \
@@ -92,13 +90,12 @@ for PROJECT_PATH in "${TARGETS[@]}"; do
   echo "   ✔ Done"
 
   # =====================================================
-  # .claude → CLAUDE.md, commands(only .md file), skills
+  # .claude → commands(only .md file), skills
   # =====================================================
   echo "🔄 Syncing → .claude"
   mkdir -p "$PROJECT_PATH/.claude"
 
   rsync -av --delete \
-    --include="CLAUDE.md" \
     --include="commands/" \
     --include="commands/*.md" \
     --include="skills/***" \
@@ -109,7 +106,7 @@ for PROJECT_PATH in "${TARGETS[@]}"; do
   echo "   ✔ Done"
 
   # =====================================================
-  # .gemini → GEMINI.md, commands(only .toml file), skills
+  # .gemini → commands(only .toml file), skills
   # =====================================================
   echo "🔄 Syncing → .gemini"
   mkdir -p "$PROJECT_PATH/.gemini"

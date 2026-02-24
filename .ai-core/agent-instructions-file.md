@@ -1,3 +1,22 @@
+
+## How to use
+Copy the necessary content from this file for different coding agent tools.
+
+**For codex cli:** Create a AGENTS.md file in your project directory. 
+
+**For gemini cli:** Create a GEMINI.md file in your project directory. 
+
+**For antigravity code editor:** Create a .agent/rules/antigravity-rules.md file. 
+
+**For claude code:** Create a CLAUDE.md file in your project directory.
+
+
+## Design and development guide
+Before implementing any coding task (new feature, debug, code review, code refactor) it must be compliant with development and design rules(must): 
+
+Design and development guide for this project: `.ai-core/project-resources/{project-name}/project-design-and-development-rules/`
+
+
 ## DOCS
 
 We keep all important docs in `.ai-core/project-resources/{project-name}/docs/` folder and keep updating them, structure like below
