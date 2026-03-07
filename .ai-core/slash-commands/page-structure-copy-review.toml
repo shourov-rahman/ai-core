@@ -1,0 +1,6 @@
+name = "page-structure-copy-review"
+description = "page structure copy rewrite"
+
+prompt = """
+Review the copy using `copy-editing` skills.
+"""
