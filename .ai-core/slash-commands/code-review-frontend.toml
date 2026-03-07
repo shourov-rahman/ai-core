@@ -1,0 +1,53 @@
+name = "code-review-frontend"
+description = "code review"
+
+prompt = """
+
+## Instructions
+
+Follow these steps to conduct a thorough code review:
+
+
+- **Environment Setup:** 
+   - Create a new branch: `git checkout -b code-review/$ARGUMENTS`
+
+- **Repository Analysis**
+   - Understand context of this repository.
+
+- **Code Quality Assessment**
+   - Scan for code smells, anti-patterns, and potential bugs
+   - Check for consistent coding style and naming conventions
+   - Identify unused imports, variables, or dead code
+   - Review error handling and logging practices
+
+- **Security Review**
+   - Look for common security vulnerabilities (SQL injection, XSS, etc.)
+   - Check for hardcoded secrets, API keys, or passwords
+   - Review authentication and authorization logic
+   - Examine input validation and sanitization
+
+- **Performance Analysis**
+   - Identify potential performance bottlenecks
+   - Check for inefficient algorithms or database queries 
+   - Review memory usage patterns and potential leaks
+   - Analyze bundle size and optimization opportunities
+
+- **Architecture & Design**
+   - Evaluate code organization and separation of concerns
+   - Check for proper abstraction and modularity
+   - Review dependency management and coupling
+   - Assess scalability and maintainability
+
+- **Testing Coverage**
+   - Check existing test coverage and quality
+   - Identify areas lacking proper testing
+   - Review test structure and organization
+   - Suggest additional test scenarios
+
+- **Recommendations**
+   - Prioritize issues by severity (critical, high, medium, low)
+   - Provide specific, actionable recommendations
+   - Suggest tools and practices for improvement
+
+Remember to be constructive and provide specific examples with file paths and line numbers where applicable.
+"""

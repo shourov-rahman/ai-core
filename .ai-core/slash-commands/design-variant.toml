@@ -1,0 +1,56 @@
+name = "design-variant"
+description = "design variant"
+
+prompt = """
+
+Give me 5 design variant for this prd.
+
+Existing prd location: `.ai-core/project-resources/{project-name}/prd/`
+
+Each variant should have a unique look and feel, while still adhering to modern design principles and usability standards. Since this app is built for business users, professional yet engaging.
+
+Use `frontend-design` skill for making design variant decision.
+
+
+This is an output example output:
+
+```
+
+**Design Variants**
+
+1. Neo-Brutalist (variant-1-neo-brutalist/)
+
+* Aesthetic: Raw, bold, high-contrast brutalist design
+* Colors: Electric yellow (#DFFF00), magenta (#FF00FF), black
+* Typography: Space Mono + Archivo Black
+* Features: Offset shadows, thick 4px borders, marquee header, grid paper background
+
+2. Glass Aurora (variant-2-glass-aurora/)
+
+* Aesthetic: Ethereal glassmorphism with aurora borealis gradients
+* Colors: Deep purples, cyan, emerald glows on dark background
+* Typography: Outfit + DM Sans
+* Features: Animated aurora backdrop, floating cards, backdrop blur, neon glow effects
+
+3. Editorial Mono (variant-3-editorial-mono/)
+
+* Aesthetic: Magazine-inspired, typography-first, intellectual
+* Colors: Black, white, single red accent (#E53935)
+* Typography: Playfair Display (serif) + IBM Plex Sans/Mono
+* Features: Strong typographic hierarchy, accent bars, editorial grid layout, fine borders
+
+4. Warm Minimal (variant-4-warm-minimal/)
+
+* Aesthetic: Soft, organic, calming earth tones
+* Colors: Cream, sand, terracotta (#C96F53), sage green (#7D9B76)
+* Typography: Fraunces (serif) + Source Sans 3
+* Features: Rounded corners, gentle shadows, subtle grain texture, smooth animations
+
+5. Dark Command (variant-5-dark-command/)
+
+* Aesthetic: Terminal/command center, data-dense, tech aesthetic
+* Colors: Near-black background, terminal green (#00FF9F), cyan, amber
+* Typography: JetBrains Mono + Orbitron
+* Features: Scanlines, grid background, corner brackets, blinking cursor, live clock, glow effects
+```
+"""
