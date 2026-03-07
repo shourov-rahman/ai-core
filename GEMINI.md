@@ -1,3 +1,14 @@
+## Git Instructuction
+- Don't write any code in `main` branch. If you have to write any code then switch to `development` branch.
+- `main` branch only for merging changes from `development` branch. 
+- For implementing new feature, code review, refactor etc create new branch
+```
+- Generate a short kebab-case name from the feature description (e.g., "Login Page" -> `login-page`).
+- Propose the branch name `feature/<kebab-case-name>`, `code-review/<kebab-case-name>`, `code-refactor/<kebab-case-name>`  .
+- Run `git checkout -b feature/<kebab-case-name>`.
+```
+
+
 ## Optimized Queries & Tools
 
 ### ⚠ Never Use (Slow)

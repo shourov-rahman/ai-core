@@ -19,6 +19,10 @@ set -e
 TARGETS=(
   "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/ai-core"
   "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/side-project/shourov-rahman-portfolio"
+  "/home/shourov/.dotfiles"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/client-project/luxury-outfit-final"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/boilerplate/my-boilerplate/page-builder-boilerplate"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/client-project/luxury-outfit-final"
 )
 
 echo "=========================================="

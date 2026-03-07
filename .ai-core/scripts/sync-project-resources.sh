@@ -17,6 +17,11 @@ MAIN_PROJECT_RESOURCES="/home/shourov/ssd-vault/working-files-and-folders/softwa
 # ------------------------------------------
 TARGETS=(
   "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/side-project/shourov-rahman-portfolio"
+  "/home/shourov/.dotfiles"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/boilerplate/my-boilerplate/html-css/html-css-js-boilerplate"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/boilerplate/my-boilerplate/page-builder-boilerplate"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/client-project/luxury-outfit-final"
+
 )
 
 # ------------------------------------------
