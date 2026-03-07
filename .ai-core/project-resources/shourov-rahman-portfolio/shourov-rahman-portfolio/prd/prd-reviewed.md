@@ -1,619 +1,610 @@
-# PRD Audit, Recommendations, and Updated PRD
+## 1. Product Overview
 
-Project: Shourov Rahman Portfolio Website  
-Sources reviewed:
-- `.ai-core/project-resources/shourov-rahman-portfolio/business-informations/business-informations.md`
-- `.ai-core/project-resources/shourov-rahman-portfolio/prd/prd.md`
+A professional portfolio website for Shourov Rahman — an ecommerce specialist combining store design & development, paid advertising, and tracking & analytics into a single-expert offering. The site functions as the primary lead-generation and authority-building channel, engineered to convert qualified visitors into booked discovery calls and get email.
 
----
+**Primary Conversion Goal:** Booked discovery calls and contact through email with ecommerce founders and agencies.
 
-## Part 1: Audit & Review
-
-### Executive Summary
-
-The current PRD is directionally strong, but it has blocking gaps in prioritization, feasibility, technical consistency, and measurement design. The biggest risks are:
-1. Trying to serve four ICPs equally in MVP, which weakens conversion clarity.
-2. Technical contradictions (Cloudflare Pages + Netlify Forms, outdated Core Web Vitals metric, and optional dependencies that are effectively required).
-3. Success metrics that are not operationalized (no formal qualified-lead definition, no source-level conversion targets, and no launch gate thresholds).
+**Authority Goal:** Establish Shourov as the go-to specialist for ecommerce conversion, paid ads, and tracking.
 
 ---
 
-### Issues, Why They Matter, Recommendations, and Risks
+## 2. Business Objectives
 
-| # | Area | Problem and Why It Matters | Recommended Fix | Risk if Not Addressed |
-|---|---|---|---|---|
-| 1 | Business & Strategy | **No ICP prioritization despite 4 segments.** This creates generic messaging and diluted CTAs. | Prioritize ICP-1 and ICP-2 for MVP demand capture (about 70-80% of messaging), keep ICP-4 secondary, and route ICP-3 to a productized starter offer. | Lower CVR from unclear relevance; more low-fit inquiries. |
-| 2 | Business & Strategy | **Lead objective is broad, not measurable by quality.** “Generate qualified inbound leads” lacks operational definition. | Define `Qualified Lead` explicitly (fit + budget + timeline + service need) and track Qualified Lead Rate as a primary KPI. | Team may optimize for form volume over revenue potential. |
-| 3 | Business & Strategy | **Conversion target (2-3% in 6 months) lacks baseline and channel assumptions.** | Split targets by channel and intent: e.g., 1.8% all traffic by Month 3, 2.5% by Month 6, and 4%+ on high-intent pages (`/services`, `/agency-partnership`, `/contact`). | Target misses with no diagnostic framework for correction. |
-| 4 | Business & Strategy | **Differentiation is stated but not validated against competitors.** | Add a required competitor benchmark (5-8 direct competitors) before final copy lock: compare offer clarity, proof depth, CTA strength, and trust signals. | Positioning remains generic and interchangeable. |
-| 5 | UX & Flows | **Primary CTA is ambiguous (“Book Call” vs “Free Audit”).** Multiple primaries reduce action confidence. | Set one global primary CTA: `Book Strategy Call`. Keep `Get Free Audit` as secondary capture for non-ready leads. | Higher drop-off from decision friction. |
-| 6 | UX & Flows | **Flows assume homepage-first journey.** In reality, many visitors land on service/case pages from ads/search/referrals. | Add direct-entry flows for `/services`, `/portfolio/[slug]`, and `/agency-partnership` with local proof and CTA. | Underperforming landing pages and weaker paid traffic ROI. |
-| 7 | UX & Flows | **No low-fit or no-calendar fallback path.** | Add alternate paths: “Prefer email?” quick form and “Starter package” route for ICP-3/low-budget leads. | Lost leads due to forced path; operational noise from poor-fit inquiries. |
-| 8 | UX & Flows | **Agency ICP is primary but agency page is optional.** This conflicts with strategy. | Move `/agency-partnership` into MVP core scope. | Weak conversion for one of the top revenue segments. |
-| 9 | UX & Flows | **Thank-you flow is underdefined.** No post-submit sequencing to move lead forward. | Add thank-you page with two actions (book calendar + prepare discovery brief), plus automated confirmation email and SLA message. | More no-shows and slower lead progression. |
-| 10 | Technical Requirements | **Stack mismatch: Netlify Forms proposed with Cloudflare Pages hosting.** | Use Cloudflare-compatible form handling (Cloudflare Worker + email API) or Formspree/HubSpot forms. | Launch blockers and broken lead capture. |
-| 11 | Technical Requirements | **Optional CRM contradicts lead-gen objective.** | Make CRM mandatory in MVP (HubSpot Free or equivalent) with source tagging and pipeline stage defaults. | Leads become untraceable; poor follow-up and attribution. |
-| 12 | Technical Requirements | **Core Web Vitals uses FID (deprecated).** | Replace FID with INP target (<200ms at p75). Keep LCP and CLS targets. | Outdated performance tracking and misleading optimization. |
-| 13 | Technical Requirements | **Performance target + optional heavy widgets conflict.** Live chat, social popups, and video embeds can break CWV. | Keep third-party scripts deferred and phase non-critical widgets post-launch; set script budget and performance budget. | Lighthouse regression and lower SEO/conversion performance. |
-| 14 | Technical Requirements | **SEO requirement “1,500+ words on homepage” is rigid and potentially harmful.** | Set intent-based content ranges by page type (homepage 800-1,200, services 900-1,300, case studies evidence-led). | Verbose copy, lower readability, weaker conversions. |
-| 15 | Technical Requirements | **No explicit accessibility standard.** | Require WCAG 2.2 AA baseline with keyboard navigation, color contrast, focus visibility, labels, and reduced motion support. | Accessibility failures, legal/compliance exposure, lost users. |
-| 16 | Technical Requirements | **Security and abuse controls are underspecified.** Honeypot alone is weak. | Add rate limiting, bot protection (Turnstile/reCAPTCHA), server-side validation, and least-privilege API key handling. | Spam overload, data integrity issues, potential abuse costs. |
-| 17 | Technical Requirements | **Privacy/compliance requirements are incomplete for global traffic.** | Include consent management (EU/UK), GA4 Consent Mode v2, cookie categories, policy pages, and data-retention policy. | Regulatory risk and inconsistent analytics data. |
-| 18 | Scope & Feasibility | **Timeline assumes all content assets are ready.** Case studies/testimonials are often the real bottleneck. | Add content dependency gates (minimum approved proof assets before dev lock) and phase launch if missing. | Timeline slips or low-credibility launch. |
-| 19 | Scope & Feasibility | **MVP vs out-of-scope contradiction (advanced animations excluded, GSAP/Framer included).** | Keep animation scope minimal in MVP (CSS/IO reveal only), defer advanced animation to Phase 2. | Scope creep and rework under tight schedule. |
-| 20 | Scope & Feasibility | **Budget says “$0 development” but required integrations can incur cost at volume.** | Document two budget tiers: strict free-tier launch and scaled tier with projected monthly costs. | Unexpected expenses or incomplete implementation. |
-| 21 | Content & Messaging | **Messaging pillars are feature-led, not segment-outcome-led.** | Rewrite pillars around business outcomes by ICP (profit recovery, delivery reliability, launch confidence, DTC transition). | Lower persuasive power and poor segment resonance. |
-| 22 | Content & Messaging | **Content ownership workflow is missing.** | Define ownership and acceptance criteria: copy, case study proof, legal approvals, and testimonial permissions. | Content delays and quality inconsistency. |
-| 23 | Content & Messaging | **Testimonial requirement is vague.** | Require attribution format: name, role, company, service used, measurable outcome or concrete qualitative result, permission record. | Weak trust signals; possible credibility concerns. |
-| 24 | Metrics & Success Criteria | **Tracking list exists, but KPI framework is incomplete.** No KPI definitions, launch gates, or reporting owner. | Define KPI dictionary, funnel stages, event naming convention, dashboards, cadence, and owners. | Inability to know if launch is succeeding or what to fix next. |
+### Primary Objective
+
+Generate booked discovery calls and get lead through email.
+
+### Secondary Objective
+
+Build measurable authority as a specialist ecommerce expert
+
+### ICP Priority Order
+
+1. **ICP-2 (Revenue-Generating Brands Scaling)** — Highest intent, highest budget, highest pain. Primary focus.
+2. **ICP-1 (Early-Stage Founders)** — Volume play, lower ticket, entry point to relationship. Secondary focus
+3. **ICP-3 (Growth-Focused Agencies)** — Highest per-project value. Secondary focus via Agency Partnership page. Tertialry focus.
 
 ---
 
-## Part 2: Updated PRD (Rewritten and Aligned)
+## 3. Target Audience
 
-# Product Requirements Document: Shourov Rahman Portfolio Website (Revised)
+### ICP-1 — Early-Stage Ecommerce Founders
 
-## Product Overview
+| Attribute        | Detail                                              |
+| ---------------- | --------------------------------------------------- |
+| Revenue          | Pre-launch to $50K/year                             |
+| Geography        | US, UK, Canada, Australia, Bangladesh               |
+| Business Type    | Dropshipping or private label brands                |
+| Decision Maker   | Solo founder, limited tech knowledge                |
+| Buying Trigger   | First launch prep; ads not converting               |
+| Core Pain        | Amateur store, no tracking, wasting ad budget       |
+| Emotional Driver | Fear of failing first business; overwhelm           |
+| Desired Outcome  | Launch-ready store + tracking + basic ads structure |
+| Budget           | From $200/project                                   |
 
-A conversion-focused portfolio website for Shourov Rahman that positions him as a growth partner for ecommerce brands and agencies. The site showcases three integrated service areas:
-- Store Design & Development
-- Paid Advertising
-- Tracking & Analytics
+### ICP-2 — Revenue-Generating Ecommerce Brands Scaling
 
-The website is the primary inbound channel for generating qualified leads from high-intent visitors in US, UK, EU, Australia, and Bangladesh-connected markets.
+| Attribute        | Detail                                                             |
+| ---------------- | ------------------------------------------------------------------ |
+| Revenue          | $50K+/year actively scaling                                        |
+| Ad Spend         | $1K–$25K/month                                                     |
+| Geography        | US, UK, EU, Australia                                              |
+| Business Type    | Fashion, beauty, lifestyle, supplement, niche DTC                  |
+| Platform         | Shopify or WooCommerce                                             |
+| Decision Maker   | Founder, Co-founder, or Head of Marketing                          |
+| Buying Trigger   | Sales plateau; tracking broken after iOS; agency underperformed    |
+| Core Pain        | CVR below 2%, broken Meta Pixel/CAPI, no attribution clarity       |
+| Emotional Driver | Fear of wasting ad budget; frustration with unreliable freelancers |
+| Desired Outcome  | High-converting store + accurate tracking + profitable ad scaling  |
+| Success Metrics  | CVR, ROAS, MER, CPP, Revenue Growth                                |
+| Budget           | $200+ project; $200–$1,000/month retainers                         |
 
-The product must convert attention into booked strategy calls and qualified inquiries through clear proof, segment-relevant messaging, and technically reliable lead capture.
+### ICP-3 — Growth-Focused Marketing Agencies
 
----
-
-## Business Objectives
-
-1. Generate qualified inbound demand from target ICPs, with focus on:
-- Primary: ICP-1 (revenue-generating ecommerce brands) and ICP-2 (agencies)
-- Secondary: ICP-4 (offline/wholesale businesses moving to DTC)
-- Controlled intake: ICP-3 via productized starter offer
-
-2. Establish authority through evidence-led positioning:
-- Minimum 3 published case studies at launch
-- Minimum 4 attributed testimonials at launch
-- Clear method/process and delivery scope
-
-3. Achieve conversion and pipeline goals:
-- Visitor-to-lead CVR (all traffic): 1.8% by Month 3, 2.5% by Month 6
-- High-intent page CVR (`/services`, `/agency-partnership`, `/contact`): 4%+ by Month 6
-- 8-12 qualified leads/month by Month 6
-- 4-6 booked strategy calls/month by Month 6
-
-4. Support project and retainer acquisition aligned with current service economics:
-- Project range: $800-$12,000
-- Retainer range: $1,500-$8,000/month
-
-### Qualified Lead Definition
-
-A lead is considered **Qualified** when all criteria are present:
-- Fit: ecommerce brand, agency, or DTC-transition business
-- Need: at least one core service (store/CRO, ads, tracking)
-- Budget: realistic with relevant offer tier
-- Timeline: intends to start within 0-90 days
-
----
-
-## Target Audience
-
-### ICP-1 (Primary): Revenue-Generating Ecommerce Brands ($250K-$1.5M/year)
-
-- Decision Maker: Founder, Co-founder, Head of Marketing
-- Core Pain: plateaued growth, weak conversion, unreliable tracking, margin pressure
-- Budget: $3,000-$12,000 projects; $2,000-$8,000/month retainers
-- Desired Outcome: profitable scaling with clear attribution
-
-### ICP-2 (Primary): Growth-Focused Agencies (3-20 employees)
-
-- Decision Maker: Agency Owner, Operations Director
-- Core Pain: ecommerce fulfillment bottlenecks, inconsistent quality, tracking issues
-- Budget: $2,000-$7,000 projects + recurring subcontract work
-- Desired Outcome: dependable white-label delivery partner
-
-### ICP-4 (Secondary): Brick & Mortar/Wholesale Moving to DTC
-
-- Decision Maker: Owner or Managing Director
-- Core Pain: no digital sales infrastructure, no ad/tracking capability
-- Budget: $2,000-$8,000 setup; $1,500-$5,000/month retainers
-- Desired Outcome: end-to-end DTC setup with measurable ROI
-
-### ICP-3 (Controlled Intake): Early-Stage Ecommerce Founders
-
-- Decision Maker: Solo founder
-- Core Pain: launch readiness and foundational setup
-- Budget: $800-$2,500 fixed package
-- Route: productized offer only, limited custom scope
+| Attribute        | Detail                                                                                                |
+| ---------------- | ----------------------------------------------------------------------------------------------------- |
+| Size             | 3–20 person agencies                                                                                  |
+| Geography        | US, UK, EU, Australia                                                                                 |
+| Specialization   | Store design and development, Paid ads, branding, or SEO — lack in-house ecommerce/tracking expertise |
+| Decision Maker   | Agency Owner or Operations Director                                                                   |
+| Buying Trigger   | New Shopify client; advanced tracking request; dev lacks CRO expertise                                |
+| Emotional Driver | Fear of losing clients from poor delivery; need dependable fulfillment partner                        |
+| Desired Outcome  | Reliable ecommerce specialist                                                                         |
+| Budget           | $500–$5,000/project; recurring subcontract retainers                                                  |
 
 ---
 
-## Positioning & Messaging
+## 4. Positioning & Messaging
 
 ### Core Value Proposition
 
-"I help ecommerce brands and agencies stop wasting ad spend by fixing the full system: conversion-focused storefronts, accurate tracking, and performance campaigns that scale profitably."
+> \*I help ecommerce businesses build stores that actually convert — and scale them with paid ads and proper tracking so every ad spend works.
 
-### Positioning Principles
+### Differentiation Pillars
 
-1. Lead with business outcomes (CVR, ROAS, MER, revenue quality), not service features.
-2. Show proof before promises (case studies, implementation details, concrete results).
-3. Emphasize integrated execution (design + tracking + paid media), not isolated tactics.
-4. Speak directly to segment pain (brand profitability, agency delivery reliability, DTC transition clarity).
+1. **Three-in-One Capability** — Store design + paid ads + tracking in one engagement. No need to hire and coordinate three separate specialists.
+2. **Ecommerce-Only Focus** — Not a generalist web agency. Every project is ecommerce. Every CRO recommendation is based on real store data.
+3. **Deep Platform Expertise** — GemPages, Replo, Shopify, WooCommerce, Meta Pixel, CAPI — not surface-level knowledge.
+4. **Accountability** — Results-oriented. Focus on CVR, ROAS, and CPP — not vanity deliverables.
 
-### Differentiation
+### Tone of Voice
 
-- Hybrid operator model: one partner connecting CRO, tracking, and paid media execution.
-- Ecommerce-only focus: no generic “any-industry web design” positioning.
-- White-label readiness for agencies with process clarity and confidentiality.
+**Confident. Direct. Results-focused. No fluff.**
 
-### Messaging Pillars (Outcome-Led)
+## 5. Core Features & Functionality
 
-1. **Profit Recovery for Scaling Brands**  
-Fix conversion leaks and attribution gaps so ad budgets produce margin, not noise.
+### MVP (Phase 1)
 
-2. **Reliable Fulfillment for Agencies**  
-Deliver ecommerce implementation consistently without increasing in-house overhead.
+| Feature                       | Description                                                  | ICP Priority |
+| ----------------------------- | ------------------------------------------------------------ | ------------ |
+| Hero section with primary CTA | Value prop + "Book a Call" CTA above the fold                | All          |
+| Social proof bar              | Client count, results badges, or logos                       | ICP-2, ICP-3 |
+| Services showcase             | Three services with pain points, outcomes, and CTA           | ICP-2, ICP-1 |
+| Portfolio / Case studies      | Minimum 3 case studies with metrics; fallback: concept work  | ICP-2, ICP-1 |
+| Testimonials                  | Minimum 3; text + name + business type                       | All          |
+| About section                 | Credibility bio + photo + specialization markers             | All          |
+| Contact / Booking             | Primary: Calendly embed; Secondary: contact form via Resend  | All          |
+| Thank You page                | Post-booking/form confirmation with next steps               | All          |
+| Custom 404 page               | Branded error page with navigation links                     | All          |
+| Legal pages                   | Privacy Policy, Terms of Service                             | All          |
+| FAQ section                   | On Services or Contact page; covers process/pricing/timeline | ICP-2, ICP-1 |
+| Cookie consent banner         | GDPR-compliant; required for EU traffic                      | EU visitors  |
 
-3. **Launch Confidence for New Founders**  
-Build a clean baseline so first campaigns are measurable and actionable.
+### Phase 2 (Post-Launch, within 30–60 days)
 
-4. **DTC Transition for Offline Businesses**  
-Move from offline dependency to trackable online revenue operations.
-
-### Competitive Benchmark Requirement (Pre-Copy Lock)
-
-Analyze 5-8 direct competitors/freelancer sites on:
-- Offer clarity
-- Proof depth
-- CTA strategy
-- Case study quality
-- Trust/compliance signals
-
-This benchmark is required before finalizing homepage/service copy.
-
----
-
-## Core Features & Functionality
-
-### 1. Hero Section
-
-- Clear ICP-aware headline and subheadline
-- Primary CTA: `Book Strategy Call`
-- Secondary CTA: `See Case Studies`
-- Trust strip: platform expertise, service outcomes, delivery geographies
-
-### 2. Service Architecture
-
-Three service categories with deliverables and expected outcomes:
-- Store Design & Development
-- Paid Advertising
-- Tracking & Analytics
-
-Each service block includes:
-- Who it is for
-- Problems solved
-- Deliverables
-- Typical timeline
-- Starting price guidance or qualification cue
-- CTA to contact/booking
-
-### 3. Proof Hub (Case Studies + Results)
-
-Launch requirement: minimum 3 case studies.
-Each includes:
-- Client context and baseline issue
-- Implementation summary
-- Results with metric deltas where available
-- Screenshots/evidence artifacts
-- Service mix used
-
-### 4. Testimonials
-
-Launch requirement: minimum 4 attributed testimonials.
-Format standard:
-- Name
-- Role + company
-- Service used
-- Measurable or specific qualitative result
-- Permission confirmed
-
-### 5. About + Credibility
-
-- Founder story and operating model
-- Domain expertise (Shopify/WooCommerce, Meta, GA4)
-- Certifications/partner badges (if verified)
-- Working style, response expectations, collaboration approach
-
-### 6. Process Section
-
-5-step process:
-1. Discovery & Diagnostic
-2. Strategy & Scope Lock
-3. Build/Setup Execution
-4. QA + Measurement Validation
-5. Launch/Scale + Reporting
-
-### 7. FAQ
-
-Answers to objections:
-- pricing model and minimum engagement
-- delivery timelines
-- ownership and handoff
-- white-label terms
-- reporting cadence
-
-### 8. Conversion System (Contact + Booking)
-
-- Lead form with qualification fields:
-  - Name, Email, Website
-  - Business type
-  - Monthly ad spend/revenue band
-  - Required services
-  - Timeline
-  - Message
-- Form validation and spam prevention
-- Calendar booking option
-- SLA expectation (response within 1 business day)
-
-### 9. Thank-You Experience
-
-- Confirmation state
-- Immediate CTA to schedule call
-- “What to prepare” checklist
-- Confirmation email trigger
-
-### 10. Blog/Resources
-
-Out of MVP. Planned for Phase 2 after baseline conversion stability.
+| Feature                                 | Priority                   |
+| --------------------------------------- | -------------------------- |
+| Blog (3–5 seed articles live at launch) | High — authority + SEO     |
+| Agency Partnership page                 | High — ICP-3 conversion    |
+| Meta CAPI upgrade (if not in MVP)       | Medium                     |
+| Newsletter/lead magnet (optional)       | Low                        |
+| Hotjar heatmaps                         | Low — UX optimization data |
 
 ---
 
-## Page Structure & Sitemap
+## 6. Page Structure & Sitemap
 
 ### Core Pages (MVP)
 
-1. Homepage (`/`)
-- Positioning, service overview, proof highlights, primary CTA
+- `/` — Homepage
+- `/services` — Services
+- `/portfolio` — Portfolio / Case Studies
+- `/about` — About
+- `/contact` — Contact
 
-2. Services (`/services`)
-- Detailed service sections, fit guidance, deliverables, CTA
+### Optional / Phase 2 Pages
 
-3. Portfolio (`/portfolio`)
-- Case study listing and filters
-- Individual case pages (`/portfolio/[slug]`)
-
-4. Agency Partnership (`/agency-partnership`)
-- White-label offer, process, confidentiality standards, CTA
-
-5. About (`/about`)
-- Experience, method, differentiators, trust signals
-
-6. Contact (`/contact`)
-- Qualification form, booking option, response expectations
+- `/agency-partnership` — Agency Partnership
+- `/blog` — Blog index
+- `/blog/[slug]` — Individual blog post
 
 ### Utility Pages (MVP)
 
-- Privacy Policy (`/privacy`)
-- Terms of Service (`/terms`)
-- Cookie Policy (`/cookies`) if consent tooling is used
-- 404 (`/404`)
-- Thank You (`/thank-you`)
+- `/thank-you` — Post-booking/form confirmation
+- `/404` — Custom not-found page
+- `/privacy-policy` — Privacy Policy
+- `/terms-of-service` — Terms of Service
 
-### Post-MVP Pages
+### Navigation Structure
 
-- Blog (`/blog`, `/blog/[slug]`)
-- Resources (`/resources`)
-
-### Sitemap
-
-```text
-/
-├── /services
-├── /portfolio
-│   ├── /portfolio/[case-study-1]
-│   ├── /portfolio/[case-study-2]
-│   └── /portfolio/[case-study-3]
-├── /agency-partnership
-├── /about
-├── /contact
-├── /privacy
-├── /terms
-├── /cookies (if required)
-└── /thank-you
-```
+- **Primary Nav (desktop):** Logo | Services | Portfolio | About | Contact | [Book a Call — CTA button]
+- **Mobile Nav:** Hamburger menu; sticky header with "Book a Call" button always visible
 
 ---
 
-## User Flows
+## 7. Content Requirements
 
-### Flow A: Ecommerce Brand (ICP-1)
+### Case Studies / Portfolio
 
-1. Entry from search/referral/ad to homepage or services page
-2. Sees profitability-led messaging and relevant proof
-3. Reviews service fit and case study evidence
-4. Clicks `Book Strategy Call` or submits qualified form
-5. Lands on thank-you page with next steps
-6. Receives confirmation email and response within SLA
+Each case study must include:
 
-### Flow B: Agency Partner (ICP-2)
+- **Client type** (business type + scale; actual name optional)
+- **Service delivered** (Store Design / Ads / Tracking or combination)
+- **The Problem** (1–2 sentences: what was broken)
+- **The Solution** (2–3 sentences: what was built/fixed)
+- **Key Result** (at least one metric: CVR%, ROAS, CPP, revenue, or time saved)
+- **Visual** (screenshot, mockup, or Loom thumbnail if video)
 
-1. Entry to `/agency-partnership` or homepage
-2. Reviews white-label process, delivery scope, quality controls
-3. Confirms proof via case studies and testimonials
-4. Submits agency-focused inquiry or books call
-5. Receives confirmation and partnership discovery agenda
+**Minimum quantity at launch:** 3 case studies
+**Fallback policy (if no live client work yet):** Concept store builds, tracking implementation screenshots, or spec projects clearly labeled "Concept / Portfolio Build" — never fabricated metrics.
 
-### Flow C: DTC Transition Business (ICP-4)
+### Testimonials
 
-1. Entry from referrals/search to homepage/services
-2. Consumes “end-to-end digital setup” positioning
-3. Reviews process and baseline timeline expectations
-4. Submits form with current offline context and goals
+- **Minimum:** 3 at launch
+- **Format:** Text quote (2–4 sentences) + first name + last initial + business context (e.g., "John D. — Shopify DTC Brand, US")
+- **Placement:** Homepage (2), Services page (1+), Portfolio page (1+)
+- **Collection:** Request from past clients/contractors pre-launch. LinkedIn recommendations are acceptable.
 
-### Flow D: Early-Stage Founder (ICP-3)
+### FAQ Content (Services or Contact Page)
 
-1. Entry from content/social
-2. Routed to starter package pathway
-3. Submits limited-scope inquiry
-4. Receives clear offer boundaries and next-step options
+Required FAQ topics:
 
-### Edge/Alternate Journeys
+1. What does the discovery call cover?
+2. How does pricing work? (project vs. retainer)
+3. How long does a typical project take?
+4. Do you offer ongoing support after project completion?
+5. Do you work with businesses outside the US?
 
-- Visitor prefers email over booking: form-first path available
-- Visitor not ready: case study/newsletter capture path
-- Low-fit/low-budget lead: guided to starter package or resource route
-- Mobile-first visitor: persistent CTA and short-form flow
+### Blog (Phase 2)
+
+- **3 seed articles minimum** before blog launch
+- **Cadence:** 1–2 articles/month post-launch
+- **Topic alignment:**
+  - ICP-2: "How to Fix Broken Meta Pixel After iOS 17," "What's Killing Your Store's Conversion Rate"
+  - ICP-1: "Shopify Store Launch Checklist for First-Time Founders"
+  - ICP-3: "Why Your Agency Needs a Dedicated Ecommerce Tracking Specialist"
+- **Content owner:** Shourov Rahman (or ghostwritten with his review/approval)
 
 ---
 
-## Technical Requirements
+## 8. User Flows
 
-### Platform & Stack
+### Flow 1 — Primary: Homepage → Book a Call
 
-- Frontend: Astro (SSG-first)
-- Styling: Tailwind CSS
-- Hosting: Cloudflare Pages
-- Optional lightweight interactions: CSS + Intersection Observer
-- Advanced animation libraries: Phase 2 only (if performance budget allows)
+1. Visitor lands on Homepage (organic search, social referral, or outreach link)
+2. Hero section: reads H1 + value proposition
+3. Scrolls through: Social Proof Bar → Services Preview → Portfolio Highlights → Testimonials
+4. Clicks primary CTA ("Book a Call" or "Work With Me")
+5. Lands on Contact page — Calendly embed visible above the fold
+6. Completes booking → redirected to `/thank-you`
+7. Receives confirmation email (via Resend)
+8. Shourov receives booking notification
 
-### Form & Lead Capture
+### Flow 2 — Not-Ready-to-Book: Contact Form
 
-Must be Cloudflare-compatible:
-- Option A (preferred): Cloudflare Worker endpoint + email provider API
-- Option B: Formspree/HubSpot embedded forms
+1. Visitor arrives at `/contact` but not ready to commit to a call
+2. Scrolls past Calendly embed to contact form
+3. Fills in: Name, Email, Business Type, Message, Service Interest (dropdown)
+4. Submits form → `/thank-you` redirect
+5. Resend delivers email to Shourov + confirmation to visitor
 
-Requirements:
-- Server-side validation
-- Honeypot + bot protection (Cloudflare Turnstile or equivalent)
-- Rate limiting
-- Confirmation and notification flows
+### Flow 3 — Services Page Entry
 
-### Required Integrations (MVP)
+1. Visitor lands directly on `/services` (from outreach link, social post, or LinkedIn)
+2. Reads service descriptions in pain → solution → outcome format
+3. Encounters service-specific CTA below each service (e.g., "Fix My Tracking," "Redesign My Store")
+4. Routes to `/contact` → primary booking flow
 
-1. GA4 + Google Search Console
-2. Meta Pixel (client-side baseline)
-3. CRM (HubSpot Free or equivalent) with source tagging
-4. Calendar booking (Calendly or Cal.com)
-5. Consent management tooling for required regions
+### Flow 4 — Portfolio Discovery
 
-### Optional / Phase 2 Integrations
+1. Visitor browses `/portfolio` for social proof
+2. Reads 1–3 case studies
+3. Bottom of portfolio: CTA section — "Seen enough? Let's talk." → `/contact`
+4. Completes booking flow
 
-- Server-side Meta CAPI (if not launched in MVP)
-- Email nurture automation
-- Live chat
-- Embedded video library
+### Flow 5 — Agency Partnership
+
+1. Agency owner lands on `/agency-partnership` via referral, outreach, or LinkedIn post
+2. Reviews: subcontracting capabilities, expertise, capacity model, past agency work
+3. Clicks CTA "Start a Partnership Conversation" → `/contact` with context pre-filled or dedicated calendar slot
+4. Completes booking → `/thank-you`
+
+### Flow 6 — About Page High-Intent Visitor
+
+1. Visitor navigates to `/about` to evaluate Shourov before committing
+2. Reads: origin story, expertise markers, why ecommerce-only, credibility proof
+3. Bottom of About: direct CTA — "Ready to work together?" → `/contact`
+4. Completes booking flow
+
+### Flow 7 — Blog → Portfolio/Services (Phase 2)
+
+1. Organic visitor lands on a blog post via Google search
+2. Reads article (high information intent)
+3. In-article CTA or end-of-post CTA: "Need help with [topic]? Book a free call." → `/contact`
+4. Sidebar or related: links to relevant portfolio case study or service page
+5. Completes booking flow if ready; if not — Meta Pixel fires for retargeting
+
+### Flow 8 — Retargeting (Non-Converter)
+
+1. Visitor browses site but doesn't book
+2. Meta Pixel fires `PageView` + `ViewContent` events
+3. Visitor sees retargeting ad on Instagram/Facebook
+4. Returns to site → completes booking flow
+
+---
+
+## 9. Technical Requirements
+
+### Platform & Technology Stack
+
+| Layer           | Choice                | Notes                                  |
+| --------------- | --------------------- | -------------------------------------- |
+| Framework       | Astro (latest stable) | SSG for maximum performance            |
+| Hosting         | Cloudflare Pages      | Free tier; global CDN; automatic HTTPS |
+| Styling         | Tailwind CSS          | Utility-first; pairs well with Astro   |
+| Language        | TypeScript            | Used in Astro components and utilities |
+| Content         | Markdown / MDX        | Blog posts and case studies            |
+| Package Manager | pnpm                  | Faster, disk-efficient                 |
+| Version Control | Git + GitHub          | CI/CD source                           |
+
+### Deployment & Environment
+
+| Environment       | Branch        | Trigger                                         |
+| ----------------- | ------------- | ----------------------------------------------- |
+| Production        | `main`        | Push to main → auto-deploy via Cloudflare Pages |
+| Staging / Preview | `development` | PR preview deployments via Cloudflare Pages     |
+
+**CI/CD:** GitHub Actions pipeline runs lint + type-check on every PR before merge to `main`.
+
+### Must-Have Integrations (MVP)
+
+| Integration                | Purpose                                                                                     | Implementation                           |
+| -------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| Calendly (or Cal.com)      | Discovery call booking                                                                      | Inline embed on `/contact`               |
+| Resend                     | Transactional email — form confirmation + notification                                      | Astro server endpoint (or edge function) |
+| Meta Pixel                 | Client-side conversion tracking: PageView, Lead, Contact                                    | Loaded via GTM                           |
+| Meta Conversion API (CAPI) | Server-side event tracking — iOS privacy workaround                                         | Cloudflare Worker or Astro SSR endpoint  |
+| Google Analytics 4 (GA4)   | Pageviews, sessions, engagement, custom events                                              | Loaded via GTM                           |
+| Google Tag Manager (GTM)   | **Single container for all marketing tags** — GA4, Meta Pixel. Not direct `<script>` embeds | GTM snippet in `<head>`                  |
+
+> ⚠️ **Important:** All marketing tags (GA4, Meta Pixel) must be loaded **through GTM only** to prevent duplicate event firing. Do not install GA4 or Meta Pixel as direct script embeds alongside GTM.
+
+### Optional Integrations (Phase 2)
+
+| Integration                          | Purpose                                                          | Notes                            |
+| ------------------------------------ | ---------------------------------------------------------------- | -------------------------------- |
+| CRM (Notion or Airtable)             | Lead management — log each form submission with contact data     | Connect via Zapier or native API |
+| Email marketing (Brevo or Mailchimp) | Lead nurture sequence post-inquiry                               | Phase 2 only                     |
+| Hotjar                               | Heatmaps, session recordings for UX optimization                 | Phase 2 only                     |
+| CookieYes / Cookiebot                | Advanced GDPR consent management (if free solution insufficient) | Phase 2 upgrade if needed        |
 
 ### Performance Requirements
 
-- Lighthouse (mobile): Performance >= 85, Accessibility >= 90, Best Practices >= 90, SEO >= 90
-- Lighthouse (desktop): >= 90 for all categories
-- Core Web Vitals (p75 targets):
-  - LCP < 2.5s
-  - INP < 200ms
-  - CLS < 0.1
-- JS budget and third-party script budget enforced
-- Responsive support: 320px to 1440px+ layouts
+| Metric                           | Target                    |
+| -------------------------------- | ------------------------- |
+| Lighthouse Performance (mobile)  | ≥ 90                      |
+| Lighthouse Performance (desktop) | ≥ 95                      |
+| LCP (Largest Contentful Paint)   | < 2.5s                    |
+| CLS (Cumulative Layout Shift)    | < 0.1                     |
+| INP (Interaction to Next Paint)  | < 200ms                   |
+| Time to First Byte (TTFB)        | < 600ms                   |
+| Total page weight (homepage)     | < 500KB (excluding fonts) |
+
+**Implementation requirements:**
+
+- Static site generation (SSG) for all core pages via Astro
+- Images: WebP/AVIF format via Astro's `<Image />` component with `width`, `height`, and `alt` required
+- All third-party scripts (GTM, Calendly): loaded with `defer` or `async`; no render-blocking scripts
+- Font loading: `font-display: swap` + preconnect to Google Fonts
+- Brotli compression: enabled by default on Cloudflare Pages (no action required)
 
 ### SEO Requirements
 
-Technical:
-- semantic HTML and heading hierarchy
-- canonical URLs
-- XML sitemap
-- robots.txt
-- structured data (Person, Organization, Service, Review, Breadcrumb as applicable)
+| Requirement               | Specification                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| Title tags                | Unique per page; format: "Page Title — Shourov Rahman"                          |
+| Meta descriptions         | Unique per page; 120–160 characters; includes primary keyword                   |
+| Heading hierarchy         | Single `<h1>` per page; `<h2>` for major sections; `<h3>` for sub-items         |
+| Semantic HTML5            | `<header>`, `<main>`, `<nav>`, `<section>`, `<article>`, `<footer>`             |
+| Canonical tags            | Self-referencing canonical on all pages                                         |
+| XML Sitemap               | `/sitemap.xml` — generated via `@astrojs/sitemap`                               |
+| robots.txt                | `/robots.txt` — allow all, point to sitemap                                     |
+| Open Graph tags           | All core pages (at minimum: `og:title`, `og:description`, `og:image`, `og:url`) |
+| Twitter/X Card            | `summary_large_image` card for all pages                                        |
+| Structured Data (JSON-LD) | See schema specifications below                                                 |
 
-On-page:
-- unique page titles and descriptions
-- clear page intent and keyword mapping
-- internal linking between services, proof, and conversion pages
-- image alt text and compressed formats
+#### JSON-LD Schema Specifications
 
-Content ranges:
-- Homepage: ~800-1,200 words (high-clarity, conversion-focused)
-- Service pages: ~900-1,300 words each
-- Case studies: evidence-focused, no filler target
+**Person schema** (on Homepage and About page):
 
-### Accessibility Requirements
+```json
+{
+  "@type": "Person",
+  "name": "Shourov Rahman",
+  "jobTitle": "Ecommerce Specialist",
+  "description": "Ecommerce store design, paid advertising, and tracking specialist",
+  "url": "https://[domain]",
+  "sameAs": ["[LinkedIn URL]", "[Twitter/X URL if applicable]"],
+  "knowsAbout": [
+    "Shopify",
+    "WooCommerce",
+    "Meta Ads",
+    "Google Ads",
+    "Conversion Rate Optimization",
+    "Meta Pixel",
+    "Google Analytics 4"
+  ]
+}
+```
 
-- WCAG 2.2 AA baseline
-- keyboard navigability and visible focus states
-- accessible form labels/errors
-- color contrast compliance
-- reduced motion preference support
+**WebSite schema** (on Homepage):
 
-### Security & Privacy
+```json
+{
+  "@type": "WebSite",
+  "name": "Shourov Rahman",
+  "url": "https://[domain]",
+  "description": "Portfolio website for Shourov Rahman — Ecommerce Specialist"
+}
+```
 
-- HTTPS enforced
-- secure secret management for API keys
-- server-side validation for all form payloads
-- bot/spam protection and rate limiting
-- privacy, terms, and cookie policy availability
-- consent-aware tracking for applicable regions
+**Service schema** (on Services page, one per service):
+
+```json
+{
+  "@type": "Service",
+  "serviceType": "[Store Design & Development / Paid Advertising / Tracking & Analytics]",
+  "provider": { "@type": "Person", "name": "Shourov Rahman" },
+  "description": "[service description]",
+  "areaServed": ["US", "GB", "AU", "EU"]
+}
+```
+
+### Analytics & Tracking Event Taxonomy
+
+#### Standard Events (Auto-fired via GTM)
+
+| Event           | Trigger                   | GA4 | Meta Pixel |
+| --------------- | ------------------------- | --- | ---------- |
+| `page_view`     | Every page load           | ✅  | `PageView` |
+| `scroll_depth`  | 25%, 50%, 75%, 90% scroll | ✅  | —          |
+| `session_start` | New session               | ✅  | —          |
+
+#### Custom Events
+
+| Event Name         | Trigger                        | GA4 | Meta Pixel | Parameters                 |
+| ------------------ | ------------------------------ | --- | ---------- | -------------------------- |
+| `cta_click`        | Any CTA button click           | ✅  | —          | `cta_location`, `cta_text` |
+| `calendly_open`    | Calendly widget loads/opens    | ✅  | `Lead`     | `page_location`            |
+| `calendly_booked`  | Calendly booking completed     | ✅  | `Contact`  | —                          |
+| `form_submit`      | Contact form submitted         | ✅  | `Contact`  | `form_type`                |
+| `form_error`       | Form validation failure        | ✅  | —          | `error_field`              |
+| `portfolio_view`   | Case study card clicked/opened | ✅  | —          | `case_study_name`          |
+| `service_expand`   | Service section expanded       | ✅  | —          | `service_name`             |
+| `testimonial_view` | Testimonial in viewport        | ✅  | —          | —                          |
+| `blog_read`        | Blog post 50%+ scroll          | ✅  | —          | `post_title`               |
+| `outbound_link`    | External link click            | ✅  | —          | `link_url`                 |
+
+#### GA4 Custom Dimensions
+
+| Dimension Name     | Scope   | Notes                                            |
+| ------------------ | ------- | ------------------------------------------------ |
+| `user_icp_type`    | User    | Set if visitor self-identifies via form dropdown |
+| `service_interest` | Session | Set from contact form service interest field     |
+
+### Accessibility Requirements (WCAG 2.1 AA)
+
+- **Keyboard navigation:** All interactive elements reachable and operable by keyboard only
+- **Color contrast:** Minimum 4.5:1 ratio for body text; 3:1 for large text (18px+ or 14px bold)
+- **Alt text:** Required on all `<img>` elements; decorative images use `alt=""`
+- **ARIA labels:** On all icon-only buttons, form inputs, and interactive widgets
+- **Skip-to-content link:** First focusable element on every page
+- **Form labels:** Every form field has an associated `<label>` element
+- **Error messages:** Form validation errors are announced to screen readers via `aria-live`
+- **Focus indicators:** Visible focus outline on all interactive elements (never `outline: none` without replacement)
+
+### Privacy & Compliance Requirements
+
+- **Cookie consent banner:** Required at launch for GDPR compliance (EU visitors)
+  - Implementation: lightweight vanilla JS solution or CookieYes free tier
+  - Behavior: block GTM from firing until consent is given for analytics/marketing cookies
+  - Necessary cookies (session): always active
+- **Privacy Policy page:** Must disclose: cookies used, data collected via forms, third-party services (Google, Meta, Calendly, Resend), data retention periods
+- **Terms of Service page:** Cover: service descriptions, payment terms reference, limitation of liability
+- **Data captured via contact form:** Name, Email, Business Type, Message, Service Interest — stored in Resend logs and optionally pushed to CRM
+
+### Contact Form Specifications
+
+**Primary Contact Path — Calendly Embed:**
+
+- Embed Calendly inline widget on `/contact` (not popup)
+- Show above the fold on desktop; first interactive element on mobile
+- Pre-filled UTM parameters passed to Calendly where possible
+
+**Secondary Contact Path — Contact Form:**
+
+- Fields: Full Name (required), Email Address (required), Business Type (dropdown: DTC Brand / Agency / Other), Service Interest (dropdown: Store Design / Paid Ads / Tracking / Multiple / Not Sure), Message (required, min 20 characters)
+- Validation: client-side + server-side
+- On success: redirect to `/thank-you`
+- On error: inline error message per field; do not clear form data
+- Spam protection: Cloudflare Turnstile (free, privacy-respecting over reCAPTCHA)
+
+**Email Automation via Resend:**
+
+- Visitor confirmation email: subject "Got your message — Shourov will be in touch", body includes name, submitted message summary, expected response time (24–48 hours), and link to book a call directly
+- Shourov notification email: includes all form fields, submission timestamp, and visitor's IP country (for context)
+
+### Mobile UX Requirements
+
+- Mobile-first responsive design (Tailwind CSS `sm:`, `md:`, `lg:` breakpoints)
+- Sticky header on mobile with "Book a Call" button always visible
+- Minimum tap target size: 44×44px for all buttons and links
+- Calendly embed must be mobile-responsive
+- No horizontal scrolling on any viewport width ≥ 320px
+- Font size minimum: 16px base on mobile to prevent iOS auto-zoom on form inputs
 
 ---
 
-## Analytics & Tracking
-
-### Event Taxonomy (Minimum)
-
-- `page_view`
-- `cta_click` (with page + CTA label)
-- `form_start`
-- `form_submit_success`
-- `form_submit_error`
-- `calendar_click`
-- `case_study_view`
-- `scroll_depth_50`
-- `scroll_depth_90`
-
-### Funnel Definitions
-
-1. Visitor
-2. Engaged visitor (>=50% scroll or >=2 page views or case study view)
-3. Lead (form submit or booking click)
-4. Qualified lead (meets fit + budget + timeline criteria)
-5. Booked call
-
-### KPI Framework
-
-Primary KPIs:
-- Qualified leads per month
-- Visitor-to-qualified-lead CVR
-- Booked calls per month
-
-Secondary KPIs:
-- Visitor-to-lead CVR by channel
-- High-intent page conversion rates
-- Form completion rate
-- Cost per qualified lead (if paid traffic is active)
-
-### Reporting Cadence and Ownership
-
-- Weekly: traffic, lead volume, top pages, conversion movement
-- Monthly: qualified pipeline health, segment performance, optimization priorities
-- Owner: site operator (Shourov) with CRM + analytics dashboard review
-
----
-
-## Constraints
+## 10. Constraints
 
 ### Budget
 
-Launch-friendly budget assumptions:
-- Development labor: self-built
-- Hosting: Cloudflare Pages free tier
-- Domain: ~USD 15/year
-- Tools: USD 0-50/month at low volume (booking, form, CRM free tiers)
-- Scaled operations: USD 50-200/month depending on form volume, automations, and ads tooling
+- Self-funded; free tooling preferred
+- Cloudflare Pages free tier (100,000 requests/day — sufficient for early traffic)
+- Open-source or free-tier packages only unless functionally essential
+- Free tools confirmed: Calendly (basic free), Resend (free tier: 3,000 emails/month), GTM (free), GA4 (free), CookieYes (free tier)
 
 ### Timeline
 
-Target: 7-8 weeks to MVP launch, assuming content dependency gates are met.
+| Phase            | Scope                                     | Target Duration            |
+| ---------------- | ----------------------------------------- | -------------------------- |
+| Phase 1 — MVP    | All core pages, tracking, integrations    | 3–4 weeks from dev start   |
+| Phase 2 — Growth | Blog + Agency Partnership + CRO iteration | 30–60 days post-MVP launch |
 
-Phase plan:
-1. Week 1-2: Messaging, copy architecture, competitor benchmark, asset collection
-2. Week 3-5: Build core pages/components and integration setup
-3. Week 6: QA (functional, accessibility, analytics, SEO, performance)
-4. Week 7: soft launch + fixes
-5. Week 8: public launch and monitoring
+### Scope
 
-### Dependency Gates (Must Be Met Before Launch Lock)
+- Single-person portfolio site (no multi-user accounts, no CMS admin panel at launch)
+- No ecommerce / payment processing on the site itself
+- English language only at launch
+- No user authentication required
 
-- Minimum 3 approved case studies
-- Minimum 4 approved testimonials with permission
-- Finalized offer scope and pricing cues
-- Legal pages finalized
-- Tracking and CRM validation complete
+### Out of Scope (Explicitly)
 
----
-
-## Scope
-
-### In Scope (MVP)
-
-- Core pages: homepage, services, portfolio + case pages, agency partnership, about, contact
-- Utility pages: privacy, terms, thank-you, 404 (cookies page when required)
-- Responsive build (mobile + desktop)
-- Lead qualification form + booking integration
-- GA4, Meta Pixel baseline, CRM integration
-- Technical SEO foundations
-- Performance and accessibility baseline targets
-
-### Out of Scope (MVP)
-
-- Full blog engine and editorial calendar
-- Live chat
-- Advanced animation systems
-- Multi-language localization
-- Authenticated client portal
-- Ecommerce checkout/payment features
-
-### Phase 2 (Post-Launch)
-
-- Blog/resources rollout
-- A/B testing framework
-- Server-side Meta CAPI expansion
-- Email nurture workflows
-- Additional case studies and video proof
+- E-commerce shopping cart or checkout functionality
+- Multi-language / i18n support
+- Real-time chat widget (live chat)
+- Custom dashboard or client portal
 
 ---
 
-## Launch Checklist
+## 11. Metrics & Success Criteria
 
-### Content & Proof
+### Phase 1 Launch Success Criteria
 
-- [ ] Core copy approved by segment
-- [ ] 3+ case studies published
-- [ ] 4+ attributed testimonials published with permissions
-- [ ] Offer boundaries and qualification cues visible
+The MVP launch is considered successful when **all** of the following are true:
 
-### Technical QA
+1. All core pages are live and responsive on mobile and desktop
+2. GA4, GTM, and Meta Pixel are firing correctly (verified in GA4 DebugView and Meta Events Manager)
+3. Calendly embed is functional and a test booking can be completed end-to-end
+4. Contact form submits correctly and both confirmation emails are delivered
+5. At least 1 real booked call received within 14 days of launch
 
-- [ ] Domain + HTTPS working
-- [ ] Form submission, error handling, and notifications verified
-- [ ] Bot protection and rate limiting active
-- [ ] CRM entry mapping and source fields verified
-- [ ] Calendar links tested
+### KPI Targets
 
-### Analytics QA
+| Metric                                     | Baseline | 4-Week Target          | 12-Week Target |
+| ------------------------------------------ | -------- | ---------------------- | -------------- |
+| Discovery calls booked/month               | 0        | 2–3                    | 5–8            |
+| Homepage conversion rate (to contact page) | —        | ≥ 5%                   | ≥ 8%           |
+| Contact page booking conversion rate       | —        | ≥ 20%                  | ≥ 30%          |
+| Avg. session duration                      | —        | ≥ 1:30 min             | ≥ 2:00 min     |
+| Scroll depth (homepage)                    | —        | ≥ 60% reach 75% scroll | ≥ 70%          |
+| Lighthouse Performance (mobile)            | —        | ≥ 90                   | ≥ 90           |
+| Core Web Vitals                            | —        | All Pass               | All Pass       |
 
-- [ ] GA4 events firing correctly
-- [ ] Conversion events mapped (form success, calendar click)
-- [ ] UTM persistence/source attribution validated
-- [ ] Dashboard views configured
+### Post-Launch Optimization Plan (Phase 2)
 
-### SEO & Accessibility QA
-
-- [ ] Metadata complete for all indexable pages
-- [ ] Sitemap and robots.txt configured
-- [ ] Structured data validated
-- [ ] Keyboard and screen-reader checks passed
-- [ ] Contrast and focus states passed
-
-### Legal & Compliance QA
-
-- [ ] Privacy and Terms pages published
-- [ ] Cookie/consent configuration validated for target regions
-- [ ] Data handling policy documented
-
-### Launch Success Criteria (First 30 Days)
-
-- [ ] No critical functional bugs in lead flow
-- [ ] >= 95% successful form submission rate
-- [ ] Visitor-to-lead CVR >= 1.2% initial baseline
-- [ ] At least 3 qualified leads generated
-- [ ] CWV within target ranges on major landing pages
+- **Week 5–8:** Review GA4 data; identify top drop-off points in booking funnel
+- **Week 8:** A/B test CTA button copy on homepage hero (e.g., "Book a Free Call" vs. "Work With Me")
+- **Week 12:** Hotjar heatmap review on Homepage and Contact page
+- **Month 3+:** Monthly blog publishing; track organic traffic growth
 
 ---
 
-## Post-Launch Optimization Priorities
+## 12. Launch Checklist
 
-1. Improve high-intent page CVR via headline and proof block tests
-2. Expand case study depth and segment mapping
-3. Tighten qualification fields to improve lead quality
-4. Add blog/resources only after conversion baseline is stable
+### Core Functionality
 
+- [ ] All core pages built and responsive (mobile-first, tested at 375px, 768px, 1280px)
+- [ ] Calendly embed functional — test booking completing end-to-end
+- [ ] Contact form functional — both emails delivered (visitor + Shourov notification)
+- [ ] Thank You page redirects correctly post-submission and post-booking
+- [ ] Custom 404 page live with navigation links
+- [ ] FAQ section live on Services or Contact page
+
+### Tracking & Analytics
+
+- [ ] GTM container installed (single method — no direct GA4/Pixel embeds alongside)
+- [ ] GA4 property configured in GTM — pageview firing on all pages
+- [ ] Meta Pixel installed via GTM — PageView firing on all pages
+- [ ] Meta CAPI configured and sending server-side events
+- [ ] Custom events firing: `cta_click`, `calendly_open`, `calendly_booked`, `form_submit`
+- [ ] Verified via GA4 DebugView + Meta Events Manager + GTM Preview mode
+- [ ] Cookie consent banner live — blocks marketing tags until consent given
+
+### SEO & Technical
+
+- [ ] Unique `<title>` and `<meta description>` on all pages
+- [ ] Single `<h1>` per page confirmed
+- [ ] XML sitemap at `/sitemap.xml` accessible and valid
+- [ ] `robots.txt` in place and correct
+- [ ] Open Graph tags on all core pages
+- [ ] JSON-LD structured data on Homepage, About, Services
+- [ ] Canonical tags on all pages
+- [ ] No broken internal links (crawl test)
+- [ ] All images have `alt` attributes
+
+### Performance & Accessibility
+
+- [ ] Lighthouse Performance ≥ 90 on mobile (tested on real device or Moto G4 emulation)
+- [ ] Core Web Vitals passing (LCP < 2.5s, CLS < 0.1, INP < 200ms)
+- [ ] Keyboard navigation tested — all interactive elements reachable
+- [ ] Skip-to-content link present
+- [ ] Color contrast passes WCAG 2.1 AA (tested with Colour Contrast Analyser)
+- [ ] No horizontal scroll at 320px viewport width
+- [ ] All form inputs have associated `<label>` elements
+
+### Compliance
+
+- [ ] Privacy Policy page live
+- [ ] Terms of Service page live
+- [ ] Cookie consent banner functional — marketing cookies blocked until consent
+- [ ] Cloudflare Turnstile spam protection on contact form
+
+### Deployment
+
+- [ ] SSL active (Cloudflare Pages — auto-enabled)
+- [ ] Custom domain connected to Cloudflare Pages
+- [ ] Production deployment live on `main` branch
+- [ ] GitHub Actions CI pipeline running lint + type-check on PRs
+
+### Content
+
+- [ ] Minimum 3 case studies or portfolio pieces live (or fallback concept work with clear labeling)
+- [ ] Minimum 3 testimonials live
+- [ ] All placeholder text removed
+- [ ] About page bio finalized with photo
+- [ ] All CTA buttons link to correct destinations
+
+---
+
+_PRD Version 2.0 — Reviewed and updated from original PRD. All identified gaps addressed. Document is ready for development._

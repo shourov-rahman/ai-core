@@ -19,6 +19,7 @@ Do not build speculative abstractions. Add complexity only when there is a real,
 - **Content-Driven**: Use typed content sources and predictable schemas.
 - **Minimal JavaScript**: Ship as little client JS as practical.
 - **Utility-First Styling**: Tailwind utilities first, reusable patterns second.
+- **Production Parity**: Keep local/CI/prod behavior aligned (ports, runtime adapter, env handling).
 
 ## 🤖 AI Assistant Guidelines
 
@@ -26,6 +27,7 @@ Do not build speculative abstractions. Add complexity only when there is a real,
 
 - Check existing patterns before adding new ones.
 - Match current project conventions unless there is a clear, documented reason to deviate.
+- Read project docs index first: `.ai-core/project-resources/shourov-rahman-portfolio/docs/README.md`.
 
 ### Common Pitfalls to Avoid
 
@@ -33,12 +35,14 @@ Do not build speculative abstractions. Add complexity only when there is a real,
 - Adding new frameworks or patterns when Alpine/Astro already solves the problem.
 - Duplicating utilities/components instead of extending existing ones.
 - Introducing style patterns that conflict with the current design system.
+- Leaving tool config drift unresolved (for example Playwright URL vs preview server URL).
 
 ### Workflow Patterns
 
 - Decide hydration strategy before implementing interactive UI.
 - For interactive features, separate render concerns from interaction concerns.
-- Validate assumptions with `pnpm run build` and relevant tests before finalizing.
+- Validate assumptions with `pnpm lint`, `pnpm astro check`, `pnpm run test:run`, and `pnpm run build` before finalizing.
+- Run `pnpm run test:e2e:chromium` when routes, navigation, forms, or key interactions change.
 
 ## 🧱 Code Structure & Modularity
 
@@ -52,9 +56,11 @@ Do not build speculative abstractions. Add complexity only when there is a real,
 
 ### Environment Configuration
 
-- Use typed environment access and keep client/server variables clearly separated.
-- If environment values become critical to runtime behavior, prefer schema validation (e.g., `astro:env` patterns or an equivalent typed validation layer).
+- Keep client/server environment variables clearly separated.
+- For runtime-critical variables, require schema validation (Astro `env.schema` or an equivalent Zod-based validation layer).
+- Fail fast for missing/invalid runtime env values.
 - Keep `.env.example` synchronized with required variables.
+- Do not expose secrets through `PUBLIC_` prefixed variables.
 
 ## 🏗️ Project Structure
 
@@ -120,6 +126,7 @@ Optional expansion directories (create on demand):
 - Prefer utility classes for component implementation.
 - Use `@apply` primarily for base/global layers or repeated low-risk patterns.
 - Use `clsx` + `tailwind-merge` for dynamic class composition.
+- Keep browser targets aligned with real support policy; do not retain legacy browser targets (e.g., IE11) unless explicitly required by product scope.
 
 ### 🎨 Icon Strategy
 
@@ -127,10 +134,41 @@ Optional expansion directories (create on demand):
 - Prefer a single icon family for consistency (currently Lucide).
 - Keep icon size/stroke consistent within each component type.
 
+### Content, MDX, and RSS
+
+- Keep all content collections typed in `src/content.config.ts` with Zod.
+- When adding/changing content frontmatter fields, update collection schema and content files in the same PR.
+- If blog/news routes are enabled, keep RSS generation (`@astrojs/rss`) in sync with collection schema and published URLs.
+- Avoid MDX runtime-side effects in content files; keep MDX focused on content, not app logic.
+
 ### Data Validation with Zod
 
 - Use Zod schemas for content collections and boundary validation.
 - Keep schema changes version-aware and update content files together.
+
+### Date Handling (`date-fns`)
+
+- Use `date-fns` utilities for date formatting and transformations.
+- Store dates in ISO format and parse explicitly.
+- Avoid locale/timezone assumptions in sorting and comparisons.
+
+### Third-Party Scripts (`@astrojs/partytown`)
+
+- Use Partytown only for eligible third-party scripts that are safe to offload to web workers.
+- Do not move first-party critical logic to Partytown.
+- Document forwarded globals/events (for example `dataLayer.push`) when adding analytics vendors.
+
+### Compression and Asset Pipeline
+
+- If `astro-compress` is used, configure it intentionally and validate output with Cloudflare delivery behavior.
+- Avoid duplicate optimization layers that increase build complexity without measurable benefit.
+- Keep `sharp` available for Astro image optimization workflows.
+
+### Dependency Hygiene
+
+- Do not add a new dependency without clear need and ownership.
+- Remove or justify unused dependencies in PRs.
+- Keep `pnpm-lock.yaml` updated with dependency changes.
 
 ### 🧪 Testing Strategy
 
@@ -147,7 +185,14 @@ Optional expansion directories (create on demand):
 #### Test Configuration Consistency
 
 - Keep Playwright `baseURL` and `webServer.url` aligned with the actual preview/dev server port.
+- Prefer one source of truth for E2E base URL (shared env/config constant) to avoid drift.
 - Keep E2E assertions aligned with real UI copy/content to avoid stale tests.
+
+#### Quality Gate Matrix
+
+- Minimum PR gate: `pnpm lint`, `pnpm astro check`, `pnpm run test:run`, `pnpm run build`.
+- Required additional gate for route or UX-critical changes: `pnpm run test:e2e:chromium`.
+- CI/release gate should run full E2E project matrix when practical.
 
 ## 🎯 TypeScript Configuration (STRICT REQUIREMENTS)
 
@@ -158,6 +203,7 @@ Optional expansion directories (create on demand):
 - Use `import type` when importing types only.
 - Leverage Astro built-in types (`HTMLAttributes`, etc.) where appropriate.
 - Keep content schemas typed and validated with Zod.
+- Do not merge PRs with `astro check` or TypeScript errors.
 
 ## SEO Strategy
 
@@ -169,6 +215,7 @@ Optional expansion directories (create on demand):
   - OG metadata
 - Keep sitemap and robots generation enabled for production.
 - Do not ship production with placeholder site config (`https://example.com`).
+- Keep canonical host/domain, sitemap URLs, and deployed domain aligned.
 
 ## 🚀 Performance Optimization
 
@@ -177,21 +224,31 @@ Optional expansion directories (create on demand):
 - Use `astro:assets` (`Image`) for content images where optimization matters.
 - `astro-icon` is preferred for icon rendering.
 - Avoid unnecessary client-side JS for static sections.
+- Prefer responsive image sizing and avoid shipping oversized assets.
+
+### Cloudflare Runtime Performance
+
+- Preserve Cloudflare Worker compatibility in all server-side code.
+- Update `wrangler.toml` `compatibility_date` intentionally (not randomly), and retest after bumps.
+- Do not rely on Node-only APIs unless verified under current `nodejs_compat` behavior.
 
 ## ⚠️ CRITICAL GUIDELINES (MUST FOLLOW ALL)
 
 1. **Use pnpm** for all package management and scripts.
 2. **Keep TypeScript strict and clean**. Do not ignore type errors.
-3. **Keep Cloudflare runtime compatibility** for server-side logic.
-4. **Hydrate intentionally**. Use the lightest Astro client directive that meets the requirement.
-5. **Validate content schemas with Zod** in `src/content.config.ts`.
-6. **Keep internal links valid**. Do not add nav/footer links to routes that do not exist.
-7. **Run quality checks before merge**: `pnpm lint`, `pnpm run test:run`, `pnpm run build`.
-8. **Keep Playwright config in sync** with preview/dev server settings.
-9. **Maintain a coherent styling strategy** across Tailwind, DaisyUI, and custom UI primitives.
-10. **Document and track known warnings**. Fix warnings where actionable; do not ignore silently.
-11. **Use typed env access and validation** for runtime-critical variables.
-12. **Preserve accessibility baseline** (focus states, keyboard navigation, semantic HTML, contrast).
+3. **Run Astro type checks** with `pnpm astro check` as part of standard validation.
+4. **Keep Cloudflare runtime compatibility** for server-side logic.
+5. **Hydrate intentionally**. Use the lightest Astro client directive that meets the requirement.
+6. **Validate content schemas with Zod** in `src/content.config.ts`.
+7. **Keep internal links valid**. Do not add nav/footer links to routes that do not exist.
+8. **Run quality checks before merge**: `pnpm lint`, `pnpm astro check`, `pnpm run test:run`, `pnpm run build`.
+9. **Run E2E checks for route/interaction changes** and keep Playwright config synchronized with preview server behavior.
+10. **Maintain a coherent styling strategy** across Tailwind, DaisyUI, and custom UI primitives.
+11. **Document and track known warnings**. Fix warnings where actionable; do not ignore silently.
+12. **Use typed env access and validation** for runtime-critical variables.
+13. **Preserve accessibility baseline** (focus states, keyboard navigation, semantic HTML, contrast).
+14. **Keep browser support policy explicit and modern** unless product requirements state otherwise.
+15. **Keep dependency changes intentional** (justify additions, remove dead packages, update lockfile).
 
 ### FORBIDDEN Practices
 
@@ -201,3 +258,5 @@ Optional expansion directories (create on demand):
 - **Do not commit broken internal navigation** (dead links to missing routes).
 - **Do not suppress lint/type errors** as a shortcut.
 - **Do not enforce one library pattern blindly** when it harms clarity or maintainability.
+- **Do not keep stale configuration defaults** that break runtime/test parity.
+- **Do not claim support for legacy browsers** without explicit product requirement and verified testing.
