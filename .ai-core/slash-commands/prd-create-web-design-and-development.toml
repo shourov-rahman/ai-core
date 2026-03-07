@@ -17,10 +17,8 @@ PRD Structure:
 - Constraints - Budget, timeline, scope
 - Launch checklist
 
-Note: 
-- Don't give me any code. Give the prd in markdown format.
-- Don't give me any other information apart from the above list. Only follow the above list. 
-- Please give me precise information. Don't include unnecessary information that don't needed. 
+ 
+**Technical Details**
 - I choose astro framework for building this project. 
 - I choose cloudflare pages for hosting frontend
 
@@ -29,7 +27,7 @@ business-information: `.ai-core/project-resources/{project-name}/business-inform
 **File and Folder Location**
 * Create the PRD as a new Markdown file.
 * The file should be placed in the following directory:
-  `.ai-core/project-resources/{project-name}/prd/{file-name}`. For example:`.ai-core/project-resources/shourov-rahman-portfolio/prd/prd.md`
+  `.ai-core/project-resources/{project-name}/prd/{file-name}`. For example:`.ai-core/project-resources/shourov-rahman-portfolio/prd/main-prd.md`, `.ai-core/project-resources/shourov-rahman-portfolio/prd/landing-page-prd.md`
 
 * If the `{project-name}` folder **does not exist**, create a new folder with correct project name and place the file inside `prd` directory.
 
@@ -37,4 +35,11 @@ business-information: `.ai-core/project-resources/{project-name}/business-inform
 
 * If **multiple folders with different `{project-name}` exist**, place the file directly inside:
   `.ai-core/project-resources/`
+
+
+Note: 
+- Don't give me any code. Give the prd in markdown format.
+- Don't give me any other information apart from the above list. Only follow the above list. 
+- Please give me precise information. Don't include unnecessary information that don't needed.
+- Create the prd based on the files I mentioned here. Don't read other folder/directory file that don't mentioned here.
 """

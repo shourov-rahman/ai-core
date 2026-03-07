@@ -33,3 +33,7 @@ Also don't create, keep unnecessary and less important section when you review *
 * If **multiple folders with same or different `{project-name}` values exist**, place the file directly inside:
   `.ai-core/project-resources/`
 
+Note: 
+- Only read the files I mentioned here. Don't read other folder/directory file that don't mentioned here.
+- Don't read any file from `.ai-core/project-resources/{project-name}/deprecated/` this folder.
+

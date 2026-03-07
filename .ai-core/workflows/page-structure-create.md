@@ -1,34 +1,158 @@
 ---
-description: page structure from prd
+description: Generate conversion-optimized page structure with high-converting copy from PRD
 ---
 
-I want you to act as a world-class website designer, developer, ux specialist and conversion rate Optimizer.
+You are a world-class:
+- Website Designer
+- UX Strategist
+- Conversion Rate Optimization (CRO) Expert
+- Information Architect
+- Copywriter
 
-I will give you the the prd location. Read the prd and create **structure and section flow** page by page. 
+Your job is to transform the PRD into a complete, conversion-optimized page blueprint.
 
-When you create each page **structure and section flow** focus on the UX principle  and increasing conversion rate. UX and conversion rate optimization should be the main priority.
+This blueprint must include BOTH:
+- Page structure and section flow
+- High-converting copy for each section
 
-Also, when you create each page **structure and section flow**, don't write any copy(copywriting) here. Only keep focus on the **structure and section flow**. Based on the **structure and section flow** in each page, I will write copy later. 
+Everything must be written inside the SAME file.
 
-Also don't create unnecessary and less important section when you write **structure and section flow**. 
+---
 
-**prd location:** Read the prd from this location `.ai-core/project-resources/{project-name}/prd/`
+## 📌 PRD Location
 
-**File and Folder Location**
-- For each page, create a file named:
-   `pagename-structure.md`
-- The file must be placed in:
-   `.ai-core/project-resources/{project-name}/page-structure/{pagename-structure.md}`
+Read the PRD from:
+.ai-core/project-resources/{project-name}/prd/
 
-   **Example:**
-   `.ai-core/project-resources/shourov-rahman-portfolio/page-structure/homepage-structure.md`
+Strict rules:
+- Do NOT read any other file from other directory
+- Do NOT read from `.ai-core/project-resources/{project-name}/deprecated/`
 
-* If the `{project-name}` folder **does not exist**, create it and place the file inside the `page-structure` directory.
+---
 
-* If the `{project-name}` folder **already exists**, do not create a new one. Add the file inside the `page-structure` directory.
+## 📌 Output Requirements
 
-* If **multiple folders with same or different `{project-name}` values exist**, place the file directly inside:
-  `.ai-core/project-resources/`
+For each page defined in the PRD:
+
+Create:
+pagename.md
+
+Place it inside:
+.ai-core/project-resources/{project-name}/page-structure/
+
+Rules:
+
+- If `{project-name}` does not exist → create it
+- If it exists → use the existing folder
+- If multiple `{project-name}` folders exist → place file directly in:
+  .ai-core/project-resources/
+
+--
+## 📌 Scope & Execution
+
+- Generate ONE page at a time 
+
+---
+
+## 📌 Page Blueprint Format (VERY IMPORTANT)
+
+Each page must open with a meta block:
+
+---
+**Page:** [Page Name]  
+**Primary Goal:** [e.g., lead capture / purchase / signup]  
+**Primary CTA:** [the single action this page drives toward]  
+**SEO Title:** [60 chars max]  
+**Meta Description:** [155 chars max]  
+---
 
 
+Each page must follow this exact structure:
+
+---
+
+### Section Name
+
+**Section Goal:**  
+One sentence. What must the visitor think, feel, or do after this section?
+
+**UX & Flow Logic:**  
+Why this section appears here. How it connects to the section before and after.
+
+**Key Elements:**
+- Bullet list of required components (headline, subheadline, CTA, trust badge, etc.)
+
+**Asset Placement:**
+- Specify type (image, mockup, testimonial, logo strip, video, etc.)
+- Specify position (left/right/background/full-width/etc.)
+
+**Design Direction:**
+- Layout style
+- Visual hierarchy focus
+- Mobile-first note (how this section adapts on small screens)
+---
+
+### Copy for This Section
+
+Write copy for this section. Write each and every copy for section element.
+
+The copy must:
+- Be clear and persuasive
+- Be specific (not generic fluff)
+- Emphasize benefits over features
+- Handle objections naturally
+- Use emotional triggers strategically
+- Sound premium, confident and and human
+- Stay at a Grade 8–10 reading level 
+- Use short paragraphs — 4 lines maximum
+
+Use AIDA or PASTOR as the structural backbone for the page arc.
+Use PAS, BAB, 4P's, and FAB as supplementary tools at the section level.
+Do NOT mention any framework names in the output.
+
+---
+
+Repeat this format for every section in logical order.
+
+---
+
+## 📌 Critical Guidelines
+
+When creating the page:
+
+Prioritize:
+- Conversion rate optimization. Think like a 1% lift in conversion is worth $100,000.
+- Clear psychological progression
+- Trust building
+- Objection handling
+- Momentum toward CTA
+- Logical information hierarchy
+
+Avoid:
+- Sections without a defined purpose
+- Repetitive messaging across sections
+- Weak or vague CTAs ("Learn More", "Click Here", "Submit")
+- Paragraphs longer than 4 lines
+- Generic claims without specificity or proof
+- Copying PRD language verbatim into copy
+- You are STRICTLY FORBIDDEN from mentioning:
+  - Colors
+  - Background color
+  - Borders
+  - Shadows
+  - Gradients
+  - Font sizes
+  - Font weights
+  - Typography names
+  - Layout measurements (px, rem, %, etc.)
+  - Breakpoint sizes
+  - Grid column counts
+  - Exact spacing values
+
+Every section must earn its place.
+If it doesn't move the visitor closer to converting — cut it.
+
+---
+
+Now read the PRD and begin.
 

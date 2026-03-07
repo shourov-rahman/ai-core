@@ -3,10 +3,31 @@ description = "development rule review"
 
 prompt = """
 
-## Development and Design Rules Conflict check
 
-Development and design rule for this project: In this directory you will find development and design rule `.ai-core/project-resources/{project-name}/project-design-and-development-rules/`
 
+## Development Rules Review
+
+You are a senior software architect and developer experience expert. I'm going to share my development guideline document. Please do the following:
+
+1. **Audit & Review** — Identify any issues:
+   - Contradictions or conflicts between rules
+   - Outdated or deprecated recommendations
+   - Vague or ambiguous rules that could be misinterpreted
+   - Missing important rules based on the package file or the tech stack I working on. 
+   - Rules that are overly restrictive without good reason
+   - Anything that is simply wrong or bad practice
+   - Any new rules need to add for any package based on the package.json file.
+
+2. **Suggest Improvements** — For each issue found, explain:
+   - What the problem is and why it matters
+   - What you recommend instead
+
+3. **Write an Updated Version** — Rewrite the full guideline document incorporating all your suggestions. Keep the same structure and tone, but fix all issues and add anything missing.
+
+
+Development guide for this project: In this directory you will find development guideline `.ai-core/project-resources/{project-name}/project-design-and-development-rules/`
+
+package: search the package.json or similar file in this codebase.
 
 **File and Folder Location**
 - Create a new markdown file. Name convention `{filename-reviewed.md}`

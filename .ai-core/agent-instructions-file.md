@@ -11,6 +11,21 @@ Copy the necessary content from this file for different coding agent tools.
 **For claude code:** Create a CLAUDE.md file in your project directory.
 
 
+## Git Instructuction
+- Don't write any code in `main` branch. If you have to write any code then switch to `development` branch.
+- `main` branch only for merging changes from `development` branch. 
+- If there is any uncommitted change available. Then before creating any new branch say the user that you should commit first. 
+- For implementing new feature, code review, refactor etc create new branch
+```
+- Generate a short kebab-case name from the feature description (e.g., "Login Page" -> `login-page`).
+- Propose the branch name `feature/<kebab-case-name>`, `code-review/<kebab-case-name>`, `code-refactor/<kebab-case-name>`  .
+- Run `git checkout -b feature/<kebab-case-name>`.
+```
+- Don't create automatic commit by your own untill I say you or give you instruction for making commit.
+- Don't create new branch for making commit. Commit in the existing branch.
+- Don't create any commit script by yourself such as commit.sh. Follow the commit instruction I asked you to follow.  
+
+
 ## Design and development guide
 Before implementing any coding task (new feature, debug, code review, code refactor) it must be compliant with development and design rules(must): 
 

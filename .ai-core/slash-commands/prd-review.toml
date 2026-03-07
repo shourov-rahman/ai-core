@@ -79,4 +79,8 @@ existing prd location: `.ai-core/project-resources/{project-name}/prd/`
 
 * If **multiple folders with different `{project-name}` exist**, place the file directly inside:
   `.ai-core/project-resources/`
+
+Note: 
+- Review the prd based on the files I mentioned here. Don't read other folder/directory file that don't mentioned here.
+- Don't read any file from `.ai-core/project-resources/{project-name}/deprecated/` this folder.
 """
