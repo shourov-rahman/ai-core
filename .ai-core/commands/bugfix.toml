@@ -10,6 +10,7 @@ Execute the following structured workflow:
 1.  **Initialization Phase**:
     - **Clean Check**: Check `git status`. If dirty, ask user to stash or commit first.
     - **Branching**:
+    - From your current branch create new branch. 
       - Generate a short kebab-case name from the bug description (e.g., "Login Button Not Working" -> `login-button-not-working`).
       - Propose the branch name `bugfix/<kebab-case-name>`.
       - Run `git checkout -b bugfix/<kebab-case-name>`.

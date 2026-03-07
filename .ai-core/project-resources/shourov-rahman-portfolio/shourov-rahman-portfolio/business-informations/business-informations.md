@@ -31,16 +31,66 @@ Products or Services -
 - N/A
 ```
 
+Primary Goal:
+
+```
+Build Authority and generate booked calls
+```
+
 Ideal Customer Profiles -
 
 ```
-ICP-1: Revenue-Generating Ecommerce Brands Scaling Profitably
+ICP-1: Early-Stage Ecommerce Founders
 
 **Who They Are**
-* $250K–$1.5M/year revenue
+* Pre-launch to $50K/year revenue
+* First-time ecommerce founders
+* Dropshipping or private label brands
+* Based in US, UK, Canada, Australia
+* Highly motivated but budget-conscious
+
+**Decision Maker**
+* Solo founder
+* Limited technical knowledge
+* Learning business fundamentals
+
+**Buying Triggers**
+* Preparing for first product launch
+* Ads not converting
+
+**Core Problems**
+* Amateur-looking store
+* No proper product page structure
+* No Meta Pixel or analytics setup
+* Wasting money on ads without clarity
+
+**Emotional Drivers**
+* Fear of failing first business
+* Overwhelm from too much information
+* Desire for fast results
+
+**Desired Transformation**
+* Clean, launch-ready store
+* Proper tracking setup
+* Basic paid ads structure
+* Clear next steps roadmap
+
+**Success Metrics They Care About**
+* First profitable month
+* Cost per purchase
+* Break-even ROAS
+
+**Budget Level**
+* Start from $200
+```
+
+```
+ICP-2: Revenue-Generating Ecommerce Business Scaling Profitably
+
+**Who They Are**
 * Fashion, beauty, lifestyle, supplement or niche DTC brands
 * Running Shopify or WooCommerce
-* Spending $3K–$25K/month on paid ads
+* Spending $1K–$25K/month on paid ads
 * Based in US, UK, EU, Australia
 * Founder-led or small marketing team (1–3 people)
 
@@ -82,13 +132,13 @@ ICP-1: Revenue-Generating Ecommerce Brands Scaling Profitably
 * Revenue Growth
 
 **Budget Level**
-* $3,000–$12,000 per project
-* $2,000–$8,000/month retainers
+* Start from $200
+* $2,00–$1,000/month retainers
 * Long-term performance partnerships
 ```
 
 ```
-ICP-2: Growth-Focused Marketing Agencies Needing White-Label Ecommerce Fulfillment
+ICP-3: Growth-Focused Marketing Agencies
 
 **Who They Are**
 * 3–20 person marketing agencies
@@ -123,7 +173,7 @@ ICP-2: Growth-Focused Marketing Agencies Needing White-Label Ecommerce Fulfillme
 * Desire to scale without hiring full-time staff
 
 **Desired Transformation**
-* Reliable white-label ecommerce expert
+* Reliable ecommerce expert
 * Clean tracking systems for all clients
 * Fast turnaround on store builds
 * Long-term backend fulfillment partner
@@ -135,107 +185,14 @@ ICP-2: Growth-Focused Marketing Agencies Needing White-Label Ecommerce Fulfillme
 * Reduced operational stress
 
 **Budget Level**
-* $2,000–$7,000 per project
+* $5,000–$5,000 per project
 * Recurring subcontract retainers
 * Long-term partnership potential
 ```
 
-```
-ICP-3: Early-Stage Ecommerce Founders (Productized Offer Only)
-
-**Who They Are**
-* Pre-launch to $50K/year revenue
-* First-time ecommerce founders
-* Dropshipping or private label brands
-* Based in US, UK, Canada, Australia
-* Highly motivated but budget-conscious
-
-**Decision Maker**
-* Solo founder
-* Limited technical knowledge
-* Learning business fundamentals
-
-**Buying Triggers**
-* Preparing for first product launch
-* Failed first store attempt
-* Influencer partnership pending
-* Ads not converting
-
-**Core Problems**
-* Amateur-looking store
-* No proper product page structure
-* No Meta Pixel or analytics setup
-* Wasting money on ads without clarity
-
-**Emotional Drivers**
-* Fear of failing first business
-* Overwhelm from too much information
-* Desire for fast results
-
-**Desired Transformation**
-* Clean, launch-ready store
-* Proper tracking setup
-* Basic paid ads structure
-* Clear next steps roadmap
-
-**Success Metrics They Care About**
-* First profitable month
-* Cost per purchase
-* Break-even ROAS
-
-**Budget Level**
-* $800–$2,500 fixed packages only
-* Limited retainer potential
-* Strict scope boundaries required
-```
+Positioning:
 
 ```
-ICP-4: Established Brick & Mortar or Wholesale Brands Moving to DTC
-
-**Who They Are**
-* $100K–$800K/year offline or wholesale revenue
-* Retail stores or product manufacturers
-* Entering direct-to-consumer ecommerce for first time
-* Based in Bangladesh, UK, Middle East, Australia
-* Product-focused businesses with no internal digital team
-
-**Decision Maker**
-* Business owner or managing director
-* Traditional business background
-* Limited understanding of digital marketing
-
-**Buying Triggers**
-* Declining foot traffic or wholesale margins
-* Desire to export products globally
-* Competitors selling online successfully
-* Launching new product line
-
-**Core Problems**
-* No online sales infrastructure
-* No ecommerce store
-* No digital ad strategy
-* No tracking or analytics setup
-* Don’t know where to start
-
-**Emotional Drivers**
-* Fear of being left behind
-* Desire to modernize business
-* Ambition to expand globally
-* Need someone to “handle everything digital”
-
-**Desired Transformation**
-* Professional ecommerce store
-* Paid ads system driving consistent sales
-* Clear visibility of ROI
-* Complete digital setup handled end-to-end
-
-**Success Metrics They Care About**
-* Online revenue growth
-* Return on Ad Spend
-* International orders
-* Clear monthly performance reporting
-
-**Budget Level**
-* $2,000–$8,000 setup projects
-* $1,500–$5,000/month management retainers
+Core Value Proposition:
+I help ecommerce brands build stores that actually convert — and scale them with paid ads and proper tracking so every ad spend works.
 ```

@@ -17,6 +17,10 @@ MAIN_AI_CORE="/home/shourov/ssd-vault/working-files-and-folders/software-develop
 # ------------------------------------------
 TARGETS=(
   "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/side-project/shourov-rahman-portfolio"
+  "/home/shourov/.dotfiles"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/client-project/luxury-outfit-final"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/boilerplate/my-boilerplate/page-builder-boilerplate"
+  "/home/shourov/ssd-vault/working-files-and-folders/software-development-engineering/project/client-project/luxury-outfit-final"
 )
 
 # ------------------------------------------
